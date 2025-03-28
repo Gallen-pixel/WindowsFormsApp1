@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1.GameObject
 {
+    [Serializable]
     public class StaticObject : GameObject
     {
         bool IsEatable = false;

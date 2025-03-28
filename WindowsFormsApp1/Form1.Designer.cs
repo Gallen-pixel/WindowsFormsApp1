@@ -102,68 +102,12 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button CloseButton;
     }
 
-    partial class Form2
-    {
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+    
 
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private void InitializeComponent()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            // Настройка свойств формы
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Text = "Form2"; // Заголовок формы
-            this.Size = new Size(1408, 792); // Размер формы
-            this.StartPosition = FormStartPosition.CenterScreen; // Позиция на экране
-            this.BackColor = Color.Black;
-        }
-    }
-
-    partial class Form2
-    {
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private void InitializeComponent()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            // Настройка свойств формы
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Text = "Form2"; // Заголовок формы
-            this.Size = new Size(1408, 792); // Размер формы
-            this.StartPosition = FormStartPosition.CenterScreen; // Позиция на экране
-            this.BackColor = Color.Black;
-        }
-    }
 }
+
+   
+
+       
+ 
 

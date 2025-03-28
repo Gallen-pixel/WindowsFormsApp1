@@ -39,6 +39,7 @@
             this.Sprite.Location = new System.Drawing.Point(0, 0);
             this.Sprite.Name = "Sprite";
             this.Sprite.Size = new System.Drawing.Size(48, 48);
+            this.Sprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Sprite.TabIndex = 0;
             this.Sprite.TabStop = false;
             // 
@@ -48,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Sprite);
-            this.ForeColor = System.Drawing.Color.Transparent;
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "ObjectControl";
             this.Size = new System.Drawing.Size(48, 48);
             ((System.ComponentModel.ISupportInitialize)(this.Sprite)).EndInit();

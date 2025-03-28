@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameObjects\ObjectPool.cs" />
     <Compile Include="Levels.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -109,8 +116,10 @@
     <None Include="Resources\food.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\WallHorizontal.png" />
-    <Content Include="Resources\WallVertical.png" />
+    <None Include="Resources\WallHorizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WallVertical.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.GameObject
 {
+    [Serializable]
     public class GameObject 
     {
         int x;

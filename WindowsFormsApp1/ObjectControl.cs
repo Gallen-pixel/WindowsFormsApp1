@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,16 +23,39 @@ namespace WindowsFormsApp1
             this.gameObject = gameObject;
             Start();
         }
+        public ObjectControl()
+        {
+            InitializeComponent();
+            
+            Start();
+        }
 
         void Start()
         {
-            gameTimer.Interval = 100; // Интервал обновления (100 мс)
-            gameTimer.Tick += new EventHandler(Animation);
-            gameTimer.Start();
+            if (gameObject !=null && gameObject.sprite.Length == 0 )
+            {
+                this.BackColor = Color.Transparent;
+            }
+            else if (gameObject != null && gameObject.sprite.Length == 1)
+            {
+                this.Sprite.Image = gameObject.sprite[0];
+            }
+            else
+            {
+                gameTimer.Interval = 100; // Интервал обновления (100 мс)
+                gameTimer.Tick += new EventHandler(Animation);
+                gameTimer.Start();
+            }
         }
+
+
 
         void Animation(object sender, EventArgs e)
         {
+            if (gameObject.sprite.Length == 0)
+            {
+                this.BackColor = Color.Green;
+            }
             if (CurrentAnimationIndex == gameObject.sprite.Length)
             {
                 CurrentAnimationIndex = 0;
