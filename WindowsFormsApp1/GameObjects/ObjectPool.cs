@@ -24,7 +24,9 @@ namespace WindowsFormsApp1.GameObjects
         public static StaticObject RTB = new StaticObject(new Bitmap[] { Properties.Resources.RTB });
         public static StaticObject TB = new StaticObject(new Bitmap[] { Properties.Resources.TB });
         public static StaticObject X = new StaticObject(new Bitmap[] { Properties.Resources.X });
-        
+
+        public static MoveObject Pacman = new MoveObject(new Bitmap[] { Properties.Resources.pacmanB });
+        public static MoveObject Ghost = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 });
 
 
 

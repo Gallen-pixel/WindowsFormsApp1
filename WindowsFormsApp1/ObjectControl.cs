@@ -14,6 +14,8 @@ namespace WindowsFormsApp1
 {
     public partial class ObjectControl : UserControl
     {
+        public GameObject.GameObject GetClass { get { return gameObject; } }
+
         GameObject.GameObject gameObject;
         Timer gameTimer = new Timer();
         int CurrentAnimationIndex = 0;

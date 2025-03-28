@@ -37,6 +37,7 @@
             this.Sprite.BackColor = System.Drawing.Color.Transparent;
             this.Sprite.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Sprite.Location = new System.Drawing.Point(0, 0);
+            this.Sprite.Margin = new System.Windows.Forms.Padding(0);
             this.Sprite.Name = "Sprite";
             this.Sprite.Size = new System.Drawing.Size(48, 48);
             this.Sprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

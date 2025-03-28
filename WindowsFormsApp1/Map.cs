@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.GameObject;
@@ -35,7 +36,7 @@ namespace WindowsFormsApp1
                 {41,10,10,10,10,10,1,10,10,10,10,10,1,11,1,11,1,10,10,10,10,10,10,1,10,10,10,10,10,1,11},
                 {11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11},
                 {11,1,33,10,43,10,10,10,10,10,43,10,43,10,1,10,10,10,10,10,43,10,43,10,10,10,10,10,31,1,11},
-                {11,1,11,1,11,1,1,1,1,1,11,1,11,1,1,1,1,2,1,1,11,1,11,1,1,1,1,1,11,1,11},
+                {11,1,11,1,11,1,1,1,1,1,11,1,11,1,0,1,1,2,1,1,11,1,11,1,1,1,1,1,11,1,11},
                 {11,1,1,1,1,1,11,1,11,1,1,1,1,1,1,1,11,1,11,1,1,1,1,1,11,1,11,1,1,1,11},
                 {30,10,10,10,10,10,40,10,40,10,10,10,10,10,10,10,40,10,40,10,10,10,10,10,40,10,40,10,10,10,32},
                 },
@@ -61,67 +62,78 @@ namespace WindowsFormsApp1
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-            } 
+            }
         };
-
-    
-        
+        MoveObject pacman = ObjectPool.Pacman;
+        List<MoveObject> ghosts = new List<MoveObject>();
+        int CellSize = 48;
         public Map()
         {
             InitializeComponent();
-            InitializeGrid();
+            StartGame();
         }
-
-        void InitializeGrid()
+        void StartGame()
+        {
+            System.Windows.Forms.Timer gameTimer = new System.Windows.Forms.Timer();
+            gameTimer.Interval = 1000; // Интервал обновления (1000 мс)
+            gameTimer.Tick += new EventHandler(Game_tick);
+            gameTimer.Start();
+        }
+        void DrawGrid(PaintEventArgs e)
         {
             for (int x = 0; x < Level.GetLength(1); x++)
             {
 
                 for (int y = 0; y < Level.GetLength(2); y++)
                 {
-                    ObjectControl objectControl = null;
-                    switch (Level[0,x, y])
+                    switch (Level[0, x, y])
                     {
-
                         case 10:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.LR));
+                            e.Graphics.DrawImage(Properties.Resources.LR, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
                         case 11:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.TB));
+                            e.Graphics.DrawImage(Properties.Resources.TB, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
                         case 20:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.X));
-
+                            e.Graphics.DrawImage(Properties.Resources.X, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
                         case 30:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.RT));
-
+                            e.Graphics.DrawImage(Properties.Resources.RT, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
                         case 31:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.LB));
+                            e.Graphics.DrawImage(Properties.Resources.LB, y * CellSize, x * CellSize, CellSize, CellSize);
 
                             break;
                         case 32:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.LT));
+                            e.Graphics.DrawImage(Properties.Resources.LT, y * CellSize, x * CellSize, CellSize, CellSize);
 
                             break;
-                        case 33:objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.RB));
+                        case 33:
+                            e.Graphics.DrawImage(Properties.Resources.RB, y * CellSize, x * CellSize, CellSize, CellSize);
 
                             break;
                         case 40:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.LRT));
+                            e.Graphics.DrawImage(Properties.Resources.LRT, y * CellSize, x * CellSize, CellSize, CellSize);
 
                             break;
                         case 41:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.RTB));
+                            e.Graphics.DrawImage(Properties.Resources.RTB, y * CellSize, x * CellSize, CellSize, CellSize);
 
                             break;
                         case 42:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.LTB));
+                            e.Graphics.DrawImage(Properties.Resources.LTB, y * CellSize, x * CellSize, CellSize, CellSize);
 
                             break;
                         case 43:
-                            objectControl = new ObjectControl(ObjectPool.DeepClone(ObjectPool.LRB));
+                            e.Graphics.DrawImage(Properties.Resources.LRB, y * CellSize, x * CellSize, CellSize, CellSize);
+                            break;
+
+                        case 1:
+                            e.Graphics.DrawImage(Properties.Resources.small_coin, y * CellSize, x * CellSize, CellSize, CellSize);
+                            break;
+                        case 2:
+                            e.Graphics.DrawImage(Properties.Resources.big_coin, y * CellSize, x * CellSize, CellSize, CellSize);
+                            break;
 
                             break;
                         case 0:
@@ -130,16 +142,95 @@ namespace WindowsFormsApp1
 
                             break;
                     }
-                    if (objectControl != null)
-                    {
-                        MapGrid.Controls.Add(objectControl, y, x);
-                    }
-
-
                 }
             }
+        }
+        void DrawEntity(PaintEventArgs e)
+        {
+            for (int x = 0; x < Level.GetLength(1); x++)
+            {
 
+                for (int y = 0; y < Level.GetLength(2); y++)
+                {
+                    switch (Level[1, x, y])
+                    {
+                        case 50:
+                            {
+                                e.Graphics.DrawImage(Properties.Resources.pacmanB, y * CellSize, x * CellSize, CellSize, CellSize);
+                                //MoveImage(new Point(pacman.X, pacman.Y * CellSize), new Point(x, y), e);
+                                pacman.X = x;
+                                pacman.Y = y;
+                            }
+                            break;
+                        case 51:
+                            {
+                                e.Graphics.DrawImage(Properties.Resources.ghost_207, y * CellSize, x * CellSize, CellSize, CellSize);
+
+                            }
+                            break;
+                        case 0:
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+        private void Map_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    {
+                        pacman.ChangeDirection(-1, 0);
+                        break;
+                    }
+                case Keys.Down:
+                    {
+                        pacman.ChangeDirection(1, 0);
+                        break;
+                    }
+                case Keys.Left:
+                    {
+                        pacman.ChangeDirection(0, -1);
+                        break;
+                    }
+                case Keys.Right:
+                    {
+                        pacman.ChangeDirection(0,1);
+                        break;
+                    }
+            }
+        }
+        void MoveImage(Point pos1,Point pos2, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(Properties.Resources.pacmanB,pos2.X,pos2.Y);
+            e.Graphics.FillRectangle(Brushes.Black,pos1.X,pos1.Y,CellSize,CellSize);
+        }
+        private void Game_tick(object sender, EventArgs e)
+        {
+            PaintEventArgs paint= new PaintEventArgs(this.CreateGraphics(), new Rectangle(0, 0, this.Width, this.Height));
+            int dX = pacman.dX;
+            int dY = pacman.dY;
+            int x = pacman.X;
+            int y = pacman.Y;
+            if (Level[0, x + dX, y + dY] < 5)
+            {
+                Level[1, x + dX, y + dY] = 50;
+                Level[1, x, y] = 0;
+                Level[0, x, y] = 0;
+                //MoveImage(new Point(x, y), new Point(x + dX, y + dY), paint);
+                pacman.Move();
+            }
+            //Map_Paint(this,paint);
+            this.Invalidate();
+        }
+
+        private void Map_Paint(object sender, PaintEventArgs e)
+        {
+            DrawGrid(e);
+            DrawEntity(e);
         }
     }
-
 }
+
+
