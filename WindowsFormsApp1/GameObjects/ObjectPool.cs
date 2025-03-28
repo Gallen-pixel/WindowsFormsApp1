@@ -13,8 +13,23 @@ namespace WindowsFormsApp1.GameObjects
 
     public static class  ObjectPool
     {
-        public static StaticObject HorizontalWall = new StaticObject(new Bitmap[] { Properties.Resources.WallHorizontal});
-        public static StaticObject VerticalWall = new StaticObject(new Bitmap[] { Properties.Resources.WallVertical});
+        public static StaticObject LB = new StaticObject(new Bitmap[] { Properties.Resources.LB });
+        public static StaticObject LR = new StaticObject(new Bitmap[] { Properties.Resources.LR});
+        public static StaticObject LRB = new StaticObject(new Bitmap[] { Properties.Resources.LRB });
+        public static StaticObject LRT = new StaticObject(new Bitmap[] { Properties.Resources.LRT });
+        public static StaticObject LT = new StaticObject(new Bitmap[] { Properties.Resources.LT });
+        public static StaticObject LTB = new StaticObject(new Bitmap[] { Properties.Resources.LTB });
+        public static StaticObject RB = new StaticObject(new Bitmap[] { Properties.Resources.RB });
+        public static StaticObject RT = new StaticObject(new Bitmap[] { Properties.Resources.RT });
+        public static StaticObject RTB = new StaticObject(new Bitmap[] { Properties.Resources.RTB });
+        public static StaticObject TB = new StaticObject(new Bitmap[] { Properties.Resources.TB });
+        public static StaticObject X = new StaticObject(new Bitmap[] { Properties.Resources.X });
+        
+
+
+
+
+
         public static T DeepClone<T>(this T obj)
         {
             using (var ms = new MemoryStream())

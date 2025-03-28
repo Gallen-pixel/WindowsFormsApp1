@@ -110,16 +110,46 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\wall.png" />
+    <Folder Include="Resources\Entity\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\food.png" />
+    <None Include="Resources\RT.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WallHorizontal.png" />
+    <None Include="Resources\RTB.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WallVertical.png" />
+    <None Include="Resources\TB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LRB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LRT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LTB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_207.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacmanB.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
