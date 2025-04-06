@@ -70,6 +70,8 @@ namespace WindowsFormsApp1
         public Map()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             StartGame();
         }
         void StartGame()
@@ -155,11 +157,10 @@ namespace WindowsFormsApp1
                     switch (Level[1, x, y])
                     {
                         case 50:
-                            {
-                                e.Graphics.DrawImage(Properties.Resources.pacmanB, y * CellSize, x * CellSize, CellSize, CellSize);
-                                //MoveImage(new Point(pacman.X, pacman.Y * CellSize), new Point(x, y), e);
+                            {                               
                                 pacman.X = x;
                                 pacman.Y = y;
+                                MoveImage(new Point(pacman.X, pacman.Y), new Point(pacman.X , pacman.Y), e);
                             }
                             break;
                         case 51:
@@ -203,12 +204,11 @@ namespace WindowsFormsApp1
         }
         void MoveImage(Point pos1,Point pos2, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(Properties.Resources.pacmanB,pos2.X,pos2.Y);
-            e.Graphics.FillRectangle(Brushes.Black,pos1.X,pos1.Y,CellSize,CellSize);
+            e.Graphics.FillRectangle(Brushes.Black, pos1.Y*CellSize, pos1.X * CellSize, CellSize, CellSize);
+            e.Graphics.DrawImage(Properties.Resources.pacmanB,pos2.Y * CellSize, pos2.X * CellSize, CellSize, CellSize);           
         }
         private void Game_tick(object sender, EventArgs e)
         {
-            PaintEventArgs paint= new PaintEventArgs(this.CreateGraphics(), new Rectangle(0, 0, this.Width, this.Height));
             int dX = pacman.dX;
             int dY = pacman.dY;
             int x = pacman.X;
@@ -218,17 +218,15 @@ namespace WindowsFormsApp1
                 Level[1, x + dX, y + dY] = 50;
                 Level[1, x, y] = 0;
                 Level[0, x, y] = 0;
-                //MoveImage(new Point(x, y), new Point(x + dX, y + dY), paint);
                 pacman.Move();
             }
-            //Map_Paint(this,paint);
             this.Invalidate();
         }
 
         private void Map_Paint(object sender, PaintEventArgs e)
         {
             DrawGrid(e);
-            DrawEntity(e);
+            DrawEntity(e);            
         }
     }
 }
