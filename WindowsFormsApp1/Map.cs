@@ -72,7 +72,42 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            InitializeEntities();
             StartGame();
+        }
+        public void InitializeEntities()
+        {            
+            Tuple<int, int> xy = CoordinatesOf(Level, pacman.ObjectID);
+            pacman.X = xy.Item1;
+            pacman.Y = xy.Item2;
+
+            ghosts.Add(ObjectPool.Ghost1);
+            ghosts.Add(ObjectPool.Ghost2);
+            ghosts.Add(ObjectPool.Ghost3);
+            ghosts.Add(ObjectPool.Ghost4);
+
+            foreach (MoveObject Ghost in  ghosts)
+            {
+                xy = CoordinatesOf(Level, Ghost.ObjectID);
+                Ghost.X = xy.Item1;
+                Ghost.Y = xy.Item2;
+            }
+        }
+        public static Tuple<int, int> CoordinatesOf(int [,,] matrix, int value)
+        {
+            int w = matrix.GetLength(1); // width
+            int h = matrix.GetLength(2); // height
+
+            for (int x = 0; x < w; ++x)
+            {
+                for (int y = 0; y < h; ++y)
+                {
+                    if (matrix[1, x, y].Equals(value))
+                        return Tuple.Create(x, y);
+                }
+            }
+
+            return Tuple.Create(-1, -1);
         }
         void StartGame()
         {
@@ -136,8 +171,6 @@ namespace WindowsFormsApp1
                         case 2:
                             e.Graphics.DrawImage(Properties.Resources.big_coin, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
-
-                            break;
                         case 0:
 
                         default:
@@ -157,16 +190,28 @@ namespace WindowsFormsApp1
                     switch (Level[1, x, y])
                     {
                         case 50:
-                            {                               
-                                pacman.X = x;
-                                pacman.Y = y;
-                                MoveImage(new Point(pacman.X, pacman.Y), new Point(pacman.X , pacman.Y), e);
+                            {
+                                MoveImage(pacman, new Point(pacman.X, pacman.Y), new Point(pacman.X , pacman.Y), e);
                             }
                             break;
                         case 51:
                             {
-                                e.Graphics.DrawImage(Properties.Resources.ghost_207, y * CellSize, x * CellSize, CellSize, CellSize);
-
+                                MoveImage(ghosts[0], new Point(ghosts[0].X, ghosts[0].Y), new Point(ghosts[0].X, ghosts[0].Y), e);
+                            }
+                            break;
+                        case 52:
+                            {
+                                MoveImage(ghosts[1], new Point(ghosts[1].X, ghosts[1].Y), new Point(ghosts[1].X, ghosts[1].Y), e);
+                            }
+                            break;
+                        case 53:
+                            {
+                                MoveImage(ghosts[2], new Point(ghosts[2].X, ghosts[2].Y), new Point(ghosts[2].X, ghosts[2].Y), e);
+                            }
+                            break;
+                        case 54:
+                            {
+                                MoveImage(ghosts[3], new Point(ghosts[3].X, ghosts[3].Y), new Point(ghosts[3].X, ghosts[3].Y), e);
                             }
                             break;
                         case 0:
@@ -202,12 +247,19 @@ namespace WindowsFormsApp1
                     }
             }
         }
-        void MoveImage(Point pos1,Point pos2, PaintEventArgs e)
+        void MoveImage(GameObject.GameObject name, Point pos1,Point pos2, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(Brushes.Black, pos1.Y*CellSize, pos1.X * CellSize, CellSize, CellSize);
-            e.Graphics.DrawImage(Properties.Resources.pacmanB,pos2.Y * CellSize, pos2.X * CellSize, CellSize, CellSize);           
+            //e.Graphics.FillRectangle(Brushes.Black, pos1.Y*CellSize, pos1.X * CellSize, CellSize, CellSize);
+            e.Graphics.DrawImage(name.sprite[0],pos2.Y * CellSize, pos2.X * CellSize, CellSize, CellSize);           
         }
         private void Game_tick(object sender, EventArgs e)
+        {
+            Pacman_move();
+            Ghost_move();
+            this.Invalidate();
+        }
+
+        void Pacman_move()
         {
             int dX = pacman.dX;
             int dY = pacman.dY;
@@ -220,9 +272,35 @@ namespace WindowsFormsApp1
                 Level[0, x, y] = 0;
                 pacman.Move();
             }
-            this.Invalidate();
         }
 
+        void Ghost_move()
+        {
+            Random newDirection = new Random();
+            foreach (MoveObject Ghost in ghosts)
+            {               
+                
+                 // 0: вверх, 1: вниз, 2: влево, 3: вправо
+                switch (newDirection.Next(0,4))
+                {
+                    case 0: Ghost.ChangeDirection(0, -1); break; // Вверх
+                    case 1: Ghost.ChangeDirection(0, 1); break;  // Вниз
+                    case 2: Ghost.ChangeDirection(-1, 0); break; // Влево
+                    case 3: Ghost.ChangeDirection(1, 0); break;  // Вправо
+                }
+
+                // Проверка на столкновение со стенами
+                int newX = Ghost.X + Ghost.dX;
+                int newY = Ghost.Y + Ghost.dY;
+
+                if (Level[0, Ghost.X + Ghost.dX, Ghost.Y + Ghost.dY] < 5)
+                {
+                    Level[1, Ghost.X + Ghost.dX, Ghost.Y + Ghost.dY] = Ghost.ObjectID;
+                    Level[1, Ghost.X, Ghost.Y] = 0;
+                    Ghost.Move();
+                }
+            }
+        }
         private void Map_Paint(object sender, PaintEventArgs e)
         {
             DrawGrid(e);

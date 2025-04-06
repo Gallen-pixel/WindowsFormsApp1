@@ -23,6 +23,7 @@ namespace WindowsFormsApp1.GameObject
             X += dX;
             Y += dY;
         }
+        public MoveObject(Bitmap[] sprites, int ID) : base(sprites, ID) { }
         public MoveObject(Bitmap[] sprites) : base(sprites) { }
     }
 }
