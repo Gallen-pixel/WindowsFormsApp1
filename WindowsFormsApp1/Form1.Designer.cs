@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
             this.StartButton.FlatAppearance.BorderSize = 0;
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Image = ((System.Drawing.Image)(resources.GetObject("StartButton.Image")));
-            this.StartButton.Location = new System.Drawing.Point(460, 350);
+            this.StartButton.Location = new System.Drawing.Point(729, 497);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(490, 100);
             this.StartButton.TabIndex = 1;
@@ -58,10 +58,12 @@ namespace WindowsFormsApp1
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1408, 792);
+            this.pictureBox1.Size = new System.Drawing.Size(1920, 1080);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -74,7 +76,7 @@ namespace WindowsFormsApp1
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Image = ((System.Drawing.Image)(resources.GetObject("CloseButton.Image")));
-            this.CloseButton.Location = new System.Drawing.Point(460, 500);
+            this.CloseButton.Location = new System.Drawing.Point(729, 620);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(490, 100);
             this.CloseButton.TabIndex = 2;
@@ -85,7 +87,7 @@ namespace WindowsFormsApp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1408, 715);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.pictureBox1);
@@ -93,6 +95,7 @@ namespace WindowsFormsApp1
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

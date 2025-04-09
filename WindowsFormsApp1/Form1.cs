@@ -29,15 +29,15 @@ namespace WindowsFormsApp1
         }
 
             public Form1()
-        {
+            {
             InitializeComponent();
-        }
+            }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            Map form2 = new Map();
+            Form2 form2 = new Form2(this);
             form2.Show();
-            //this.Close();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,6 +48,11 @@ namespace WindowsFormsApp1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+        public void ShowForm1(object sender, EventArgs e)
+        {
+            this.Show();
+            
         }
     }
     

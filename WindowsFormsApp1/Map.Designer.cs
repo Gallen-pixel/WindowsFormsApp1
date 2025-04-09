@@ -38,6 +38,8 @@
             this.ClientSize = new System.Drawing.Size(1488, 690);
             this.Name = "Map";
             this.Text = "Form3";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Map_FormClosed);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Map_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Map_KeyDown);
             this.ResumeLayout(false);
