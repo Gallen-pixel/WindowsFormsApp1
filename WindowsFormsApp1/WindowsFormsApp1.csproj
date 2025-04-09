@@ -166,5 +166,8 @@
   <ItemGroup>
     <None Include="Resources\small coin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pac-man-1.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

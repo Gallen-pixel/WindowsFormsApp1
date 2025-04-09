@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.GameObject
         int Power = 0;
         public int dX { get; private set; }
         public int dY { get; private set; }
+        public int CoinsEaten { get; private set; }
         public void ChangeDirection(int directionX,int directionY)
         {
             dX = directionX;
@@ -22,6 +23,10 @@ namespace WindowsFormsApp1.GameObject
         {
             X += dX;
             Y += dY;
+        }
+        public void EatCoin()
+        {
+            CoinsEaten+=10; 
         }
         public MoveObject(Bitmap[] sprites, int ID) : base(sprites, ID) { }
         public MoveObject(Bitmap[] sprites) : base(sprites) { }

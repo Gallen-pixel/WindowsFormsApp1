@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -67,6 +69,7 @@ namespace WindowsFormsApp1
         MoveObject pacman = ObjectPool.Pacman;
         List<MoveObject> ghosts = new List<MoveObject>();
         int CellSize = 48;
+        
         public Map()
         {
             InitializeComponent();
@@ -74,6 +77,7 @@ namespace WindowsFormsApp1
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             InitializeEntities();
             StartGame();
+            playSimpleSound();
         }
         public void InitializeEntities()
         {            
@@ -116,6 +120,7 @@ namespace WindowsFormsApp1
             gameTimer.Tick += new EventHandler(Game_tick);
             gameTimer.Start();
         }
+        
         void DrawGrid(PaintEventArgs e)
         {
             for (int x = 0; x < Level.GetLength(1); x++)
@@ -267,10 +272,16 @@ namespace WindowsFormsApp1
             int y = pacman.Y;
             if (Level[0, x + dX, y + dY] < 5)
             {
-                Level[1, x + dX, y + dY] = 50;
+                if (Level[0, x + dX, y + dY] == 1 || Level[0, x + dX, y + dY] == 2) 
+                {
+                    pacman.EatCoin();
+                    Level[0, x + dX, y + dY] = 0; 
+                }
                 Level[1, x, y] = 0;
+                Level[1, x + dX, y + dY] = pacman.ObjectID;
                 Level[0, x, y] = 0;
                 pacman.Move();
+                
             }
         }
 
@@ -303,9 +314,23 @@ namespace WindowsFormsApp1
         }
         private void Map_Paint(object sender, PaintEventArgs e)
         {
+           
             DrawGrid(e);
-            DrawEntity(e);            
+            DrawEntity(e);
+            e.Graphics.DrawString($"Монеты: {pacman.CoinsEaten}", new Font("Arial", 16), Brushes.White, new PointF(1500, 10));
         }
+        private void playSimpleSound()
+        {
+
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string resourcesDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\Resources"));
+            string resourcePath = Path.Combine(resourcesDirectory, "pac-man-1.wav");
+
+            SoundPlayer simpleSound = new SoundPlayer(resourcePath);
+            simpleSound.PlayLooping();
+            
+        }
+
     }
 }
 
