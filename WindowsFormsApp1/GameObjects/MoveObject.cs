@@ -10,15 +10,42 @@ namespace WindowsFormsApp1.GameObject
     [Serializable]
     public class MoveObject : GameObject
     {
-        public int Power { get; private set; } = 0;
+        
         int RespawnX = 0;
         int RespawnY = 0;
+        int currentFrame = 0;
+        public int Power { get; private set; } = 0;
         public int Timeout { get; private set; } = 0;
         int PowerDuration = 0;
         public int Lifes { get; private set; } = 3;
         public int dX { get; private set; }
         public int dY { get; private set; }
-        public int CoinsEaten { get; private set; }       
+        public int CoinsEaten { get; private set; }
+        public int CurrentState { get; private set; }
+        public int CurrentFrame 
+        { 
+            get
+            {
+                if (currentFrame == this.sprite.GetLength(2) - 1)
+                {
+                    currentFrame = 0;
+                    return currentFrame;
+                }
+                else
+                    return currentFrame++;
+            } 
+            private set { currentFrame = value; } 
+        }
+        public int Direction 
+        {
+            get 
+            {
+                if (dX != 0)
+                    return 1 - dX;
+                else
+                    return 2 - dY;                  
+            }
+        }
         public void Move()
         {
             X += dX;
@@ -32,7 +59,7 @@ namespace WindowsFormsApp1.GameObject
         public void EatCoin(int coin)
         {
             CoinsEaten += coin * 10; 
-            if (coin == 2) {SetPower(2);SetPowerDuration(30);}
+            if (coin == 2) {SetPower(2); SetPowerDuration(30); CurrentState = (int)PacmanState.PoweredUp; }
         }
         public void SetRespawn(int respawnX, int respawnY)
         {
@@ -71,16 +98,16 @@ namespace WindowsFormsApp1.GameObject
             else
                 SetPower(0);
         }
-        public MoveObject(Bitmap[] sprites, int ID, int Power,int Lifes) : base(sprites, ID) 
+        public MoveObject(Bitmap[,,] sprites, int ID, int Power,int Lifes) : base(sprites, ID) 
         { 
             this.Power = Power;
             this.Lifes = Lifes;
         }
-        public MoveObject(Bitmap[] sprites, int ID, int Power) : base(sprites, ID)
+        public MoveObject(Bitmap[,,] sprites, int ID, int Power) : base(sprites, ID)
         {
             this.Power = Power;
         }
-        public MoveObject(Bitmap[] sprites, int ID) : base(sprites, ID) { }
-        public MoveObject(Bitmap[] sprites) : base(sprites) { }
+        public MoveObject(Bitmap[,,] sprites, int ID) : base(sprites, ID) { }
+        public MoveObject(Bitmap[,,] sprites) : base(sprites) { }
     }
 }

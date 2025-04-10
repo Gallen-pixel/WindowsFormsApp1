@@ -13,6 +13,6 @@ namespace WindowsFormsApp1.GameObject
     {
         bool IsEatable = false;
 
-        public StaticObject(Bitmap[] sprites): base(sprites) { }
+        public StaticObject(Bitmap[,,] sprites): base(sprites) { }
     }
 }

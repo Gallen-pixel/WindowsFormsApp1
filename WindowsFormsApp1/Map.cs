@@ -170,9 +170,9 @@ namespace WindowsFormsApp1
                     }
             }
         }
-        void MoveImage(GameObject.GameObject obj, PaintEventArgs e)
+        void MoveImage(GameObject.MoveObject obj, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(obj.sprite[0], obj.Y*CellSize, obj.X*CellSize, CellSize, CellSize);           
+            e.Graphics.DrawImage(obj.sprite[obj.CurrentState,obj.Direction,obj.CurrentFrame], obj.Y*CellSize, obj.X*CellSize, CellSize, CellSize);           
         }
         private void Game_tick(object sender, EventArgs e)
         {
