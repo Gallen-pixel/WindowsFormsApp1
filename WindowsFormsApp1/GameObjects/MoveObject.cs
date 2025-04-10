@@ -10,23 +10,67 @@ namespace WindowsFormsApp1.GameObject
     [Serializable]
     public class MoveObject : GameObject
     {
-        int Power = 0;
+        public int Power { get; private set; } = 0;
+        int RespawnX = 0;
+        int RespawnY = 0;
+        int Timeout = 0;
+        int PowerDuration = 0;
         public int dX { get; private set; }
         public int dY { get; private set; }
-        public int CoinsEaten { get; private set; }
-        public void ChangeDirection(int directionX,int directionY)
-        {
-            dX = directionX;
-            dY = directionY;
-        }
+        public int CoinsEaten { get; private set; }       
         public void Move()
         {
             X += dX;
             Y += dY;
         }
-        public void EatCoin()
+        public void ChangeDirection(int directionX, int directionY)
         {
-            CoinsEaten+=10; 
+            dX = directionX;
+            dY = directionY;
+        }
+        public void EatCoin(int coin)
+        {
+            CoinsEaten += coin * 10; 
+            if (coin == 2) {SetPower(2);SetPowerDuration(30);}
+        }
+        public void SetRespawn(int respawnX, int respawnY)
+        {
+            RespawnX = respawnX;
+            RespawnY = respawnY;
+        }
+        public void Respawn()
+        {
+            X = RespawnX;
+            Y = RespawnY;
+        }
+        public void SetTimeOut(int timeOut)
+        {
+            Timeout = timeOut;
+        }
+        public bool TimeOut()
+        {
+            if (Timeout>0)
+                Timeout--;
+            return Timeout>0;
+        }
+        private void SetPower(int power)
+        {
+            Power = power;
+        }
+        public void SetPowerDuration(int duration)
+        {  
+            PowerDuration = duration; 
+        }
+        public void PowerDurationDecrease()
+        {
+            if (PowerDuration > 0)
+                PowerDuration--;
+            else
+                SetPower(0);
+        }
+        public MoveObject(Bitmap[] sprites, int ID, int Power) : base(sprites, ID) 
+        { 
+            this.Power = Power;
         }
         public MoveObject(Bitmap[] sprites, int ID) : base(sprites, ID) { }
         public MoveObject(Bitmap[] sprites) : base(sprites) { }

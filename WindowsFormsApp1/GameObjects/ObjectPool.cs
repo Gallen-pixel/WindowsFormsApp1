@@ -25,11 +25,11 @@ namespace WindowsFormsApp1.GameObjects
         public static StaticObject TB = new StaticObject(new Bitmap[] { Properties.Resources.TB });
         public static StaticObject X = new StaticObject(new Bitmap[] { Properties.Resources.X });
 
-        public static MoveObject Pacman = new MoveObject(new Bitmap[] { Properties.Resources.pacmanB }, 50);
-        public static MoveObject Ghost1 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 51);
-        public static MoveObject Ghost2 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 52);
-        public static MoveObject Ghost3 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 53);
-        public static MoveObject Ghost4 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 54);
+        public static MoveObject Pacman = new MoveObject(new Bitmap[] { Properties.Resources.pacmanB }, 50, 0);
+        public static MoveObject Ghost1 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 51, 1);
+        public static MoveObject Ghost2 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 52, 1);
+        public static MoveObject Ghost3 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 53, 1);
+        public static MoveObject Ghost4 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 54, 1);
 
 
 

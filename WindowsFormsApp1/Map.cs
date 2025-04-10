@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
             Tuple<int, int> xy = CoordinatesOf(Level, pacman.ObjectID);
             pacman.X = xy.Item1;
             pacman.Y = xy.Item2;
-
+            pacman.SetRespawn(pacman.X, pacman.Y);
             ghosts.Add(ObjectPool.Ghost1);
             ghosts.Add(ObjectPool.Ghost2);
             ghosts.Add(ObjectPool.Ghost3);
@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
                 xy = CoordinatesOf(Level, Ghost.ObjectID);
                 Ghost.X = xy.Item1;
                 Ghost.Y = xy.Item2;
+                Ghost.SetRespawn(Ghost.X, Ghost.Y);
             }
         }
         public static Tuple<int, int> CoordinatesOf(int [,,] matrix, int value)
@@ -70,7 +71,7 @@ namespace WindowsFormsApp1
         void StartGame()
         {
             System.Windows.Forms.Timer gameTimer = new System.Windows.Forms.Timer();
-            gameTimer.Interval = 150; // Интервал обновления (1000 мс)
+            gameTimer.Interval = 300; // Интервал обновления (1000 мс)
             gameTimer.Tick += new EventHandler(Game_tick);
             gameTimer.Start();
         }
@@ -98,32 +99,25 @@ namespace WindowsFormsApp1
                             break;
                         case 31:
                             e.Graphics.DrawImage(Properties.Resources.LB, y * CellSize, x * CellSize, CellSize, CellSize);
-
                             break;
                         case 32:
                             e.Graphics.DrawImage(Properties.Resources.LT, y * CellSize, x * CellSize, CellSize, CellSize);
-
                             break;
                         case 33:
                             e.Graphics.DrawImage(Properties.Resources.RB, y * CellSize, x * CellSize, CellSize, CellSize);
-
                             break;
                         case 40:
                             e.Graphics.DrawImage(Properties.Resources.LRT, y * CellSize, x * CellSize, CellSize, CellSize);
-
                             break;
                         case 41:
                             e.Graphics.DrawImage(Properties.Resources.RTB, y * CellSize, x * CellSize, CellSize, CellSize);
-
                             break;
                         case 42:
                             e.Graphics.DrawImage(Properties.Resources.LTB, y * CellSize, x * CellSize, CellSize, CellSize);
-
                             break;
                         case 43:
                             e.Graphics.DrawImage(Properties.Resources.LRB, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
-
                         case 1:
                             e.Graphics.DrawImage(Properties.Resources.small_coin, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
@@ -131,9 +125,7 @@ namespace WindowsFormsApp1
                             e.Graphics.DrawImage(Properties.Resources.big_coin, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
                         case 0:
-
                         default:
-
                             break;
                     }
                 }
@@ -213,29 +205,35 @@ namespace WindowsFormsApp1
         }
         private void Game_tick(object sender, EventArgs e)
         {
-            Pacman_move();
             Ghost_move();
+            Pacman_move();
+            pacman.PowerDurationDecrease();
             this.Invalidate();
         }
 
         void Pacman_move()
         {
-            int dX = pacman.dX;
-            int dY = pacman.dY;
-            int x = pacman.X;
-            int y = pacman.Y;
-            if (Level[0, x + dX, y + dY] < 5)
+            int newX = pacman.dX + pacman.X;
+            int newY = pacman.dY + pacman.Y;
+            int nextPos0 = Level[0, newX, newY];
+            int nextPos1 = Level[1, newX, newY];
+            if (nextPos0 < 5)
             {
-                if (Level[0, x + dX, y + dY] == 1 || Level[0, x + dX, y + dY] == 2) 
+                if (nextPos1 >= 51)
                 {
-                    pacman.EatCoin();
-                    Level[0, x + dX, y + dY] = 0; 
+                    MoveObject Ghost = ghosts[nextPos1 % 50 - 1];
+                    if (pacman.Power > Ghost.Power) { Ghost.Respawn(); }
+                    else { pacman.Respawn(); return; }
                 }
-                Level[1, x, y] = 0;
-                Level[1, x + dX, y + dY] = pacman.ObjectID;
-                Level[0, x, y] = 0;
-                pacman.Move();
-                
+                if (nextPos0 == 1 || nextPos0 == 2) 
+                {
+                    pacman.EatCoin(nextPos0);
+                    Level[0, newX, newY] = 0; 
+                }
+                Level[1, pacman.X, pacman.Y] = 0;
+                Level[1, newX, newY] = pacman.ObjectID;
+                Level[0, pacman.X, pacman.Y] = 0;
+                pacman.Move();               
             }
         }
 
@@ -257,12 +255,19 @@ namespace WindowsFormsApp1
                 // Проверка на столкновение со стенами
                 int newX = Ghost.X + Ghost.dX;
                 int newY = Ghost.Y + Ghost.dY;
+                int nextPos0 = Level[0, newX, newY];
+                int nextPos1 = Level[1, newX, newY];
 
-                if (Level[0, Ghost.X + Ghost.dX, Ghost.Y + Ghost.dY] < 5)
+                if (nextPos0 < 5 && !(nextPos1 >= 51 && nextPos1 <= 54))
                 {
-                    Level[1, Ghost.X + Ghost.dX, Ghost.Y + Ghost.dY] = Ghost.ObjectID;
-                    Level[1, Ghost.X, Ghost.Y] = 0;
-                    Ghost.Move();
+                    if (nextPos1 == pacman.ObjectID)
+                    {
+                        if (pacman.Power > Ghost.Power) { Level[1, Ghost.X, Ghost.Y] = 0; Ghost.Respawn(); return; }
+                        else { pacman.Respawn(); }
+                    }
+                        Level[1, newX, newY] = Ghost.ObjectID;
+                        Level[1, Ghost.X, Ghost.Y] = 0;                    
+                        Ghost.Move();               
                 }
             }
         }
