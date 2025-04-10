@@ -133,44 +133,10 @@ namespace WindowsFormsApp1
         }
         void DrawEntity(PaintEventArgs e)
         {
-            for (int x = 0; x < Level.GetLength(1); x++)
-            {
+            MoveImage(pacman, e);
+            foreach (MoveObject Ghost in ghosts)
+                MoveImage(Ghost, e);
 
-                for (int y = 0; y < Level.GetLength(2); y++)
-                {
-                    switch (Level[1, x, y])
-                    {
-                        case 50:
-                            {
-                                MoveImage(pacman, new Point(pacman.X, pacman.Y), new Point(pacman.X , pacman.Y), e);
-                            }
-                            break;
-                        case 51:
-                            {
-                                MoveImage(ghosts[0], new Point(ghosts[0].X, ghosts[0].Y), new Point(ghosts[0].X, ghosts[0].Y), e);
-                            }
-                            break;
-                        case 52:
-                            {
-                                MoveImage(ghosts[1], new Point(ghosts[1].X, ghosts[1].Y), new Point(ghosts[1].X, ghosts[1].Y), e);
-                            }
-                            break;
-                        case 53:
-                            {
-                                MoveImage(ghosts[2], new Point(ghosts[2].X, ghosts[2].Y), new Point(ghosts[2].X, ghosts[2].Y), e);
-                            }
-                            break;
-                        case 54:
-                            {
-                                MoveImage(ghosts[3], new Point(ghosts[3].X, ghosts[3].Y), new Point(ghosts[3].X, ghosts[3].Y), e);
-                            }
-                            break;
-                        case 0:
-                        default:
-                            break;
-                    }
-                }
-            }
         }
         private void Map_KeyDown(object sender, KeyEventArgs e)
         {
@@ -196,78 +162,190 @@ namespace WindowsFormsApp1
                         pacman.ChangeDirection(0,1);
                         break;
                     }
+                case Keys.Escape:
+                    {
+                        Application.Exit();
+                        break;
+                    }
             }
         }
-        void MoveImage(GameObject.GameObject name, Point pos1,Point pos2, PaintEventArgs e)
+        void MoveImage(GameObject.GameObject obj, PaintEventArgs e)
         {
-            //e.Graphics.FillRectangle(Brushes.Black, pos1.Y*CellSize, pos1.X * CellSize, CellSize, CellSize);
-            e.Graphics.DrawImage(name.sprite[0],pos2.Y * CellSize, pos2.X * CellSize, CellSize, CellSize);           
+            e.Graphics.DrawImage(obj.sprite[0], obj.Y*CellSize, obj.X*CellSize, CellSize, CellSize);           
         }
         private void Game_tick(object sender, EventArgs e)
         {
             Ghost_move();
             Pacman_move();
-            pacman.PowerDurationDecrease();
+            HandleTimeouts();
             this.Invalidate();
         }
-
+        void HandleTimeouts()
+        {
+            pacman.PowerDurationDecrease();
+            pacman.TimeOut();
+            foreach (MoveObject Ghost in ghosts)
+            {
+                Ghost.TimeOut();
+            }
+        }
         void Pacman_move()
         {
+            if (!CheckMove(pacman) || pacman.Timeout>0)
+                return;
             int newX = pacman.dX + pacman.X;
             int newY = pacman.dY + pacman.Y;
             int nextPos0 = Level[0, newX, newY];
             int nextPos1 = Level[1, newX, newY];
-            if (nextPos0 < 5)
+            if(HandleGhostCollision(nextPos1) && HandleItemCollision(newX, newY, nextPos0))
             {
-                if (nextPos1 >= 51)
-                {
-                    MoveObject Ghost = ghosts[nextPos1 % 50 - 1];
-                    if (pacman.Power > Ghost.Power) { Ghost.Respawn(); }
-                    else { pacman.Respawn(); return; }
-                }
-                if (nextPos0 == 1 || nextPos0 == 2) 
-                {
-                    pacman.EatCoin(nextPos0);
-                    Level[0, newX, newY] = 0; 
-                }
                 Level[1, pacman.X, pacman.Y] = 0;
                 Level[1, newX, newY] = pacman.ObjectID;
                 Level[0, pacman.X, pacman.Y] = 0;
-                pacman.Move();               
+                pacman.Move();
+            }
+            
+        }
+        bool HandleGhostCollision(int content)
+        {
+            if (content <= 50)
+                return true;
+            MoveObject Ghost = ghosts[content % 50 - 1];
+            if (pacman.Power > Ghost.Power)
+            {
+                Ghost.Respawn();
+                Level[1, Ghost.X, Ghost.Y] = Ghost.ObjectID;
+                return true;
+            }
+            else
+            {
+                pacman.Respawn();
+                Level[1, pacman.X, pacman.Y] = pacman.ObjectID;
+                return false;
             }
         }
-
+        bool HandleItemCollision(int newX, int newY,int content)
+        {
+            switch (content)
+            {
+                case 1:
+                case 2:
+                {
+                    pacman.EatCoin(content);
+                    break;
+                }
+            }
+            Level[0, newX, newY] = 0;
+            return true;
+        }
+        bool HandlePacmanCollision(MoveObject obj, int content)
+        {
+            if (content == pacman.ObjectID)
+            {
+                if (pacman.Power > obj.Power) 
+                { 
+                    Level[1, obj.X, obj.Y] = 0; 
+                    obj.Respawn();
+                    Level[1, obj.X, obj.Y] = obj.ObjectID;
+                    return false; 
+                }
+                else 
+                { 
+                    pacman.Respawn();
+                    Level[1, pacman.X, pacman.Y] = pacman.ObjectID;
+                    return true;
+                }
+            }
+            return true;
+        }
+        bool CheckMove(MoveObject obj)
+        {
+            int newX = obj.X + obj.dX;
+            int newY = obj.Y + obj.dY;
+            int nextPos0 = Level[0, newX, newY];
+            int nextPos1 = Level[1, newX, newY];
+            if (nextPos0 > 5)
+                return false;
+            if (obj.ObjectID == 50)
+            {
+                return true;
+            }
+            else
+            {
+                if(nextPos1 >= 51 && nextPos1 <= 54)
+                    return false;
+            }
+            return true;
+        }
         void Ghost_move()
         {
-            Random newDirection = new Random();
+            Random random = new Random();
             foreach (MoveObject Ghost in ghosts)
-            {               
-                
-                 // 0: вверх, 1: вниз, 2: влево, 3: вправо
-                switch (newDirection.Next(0,4))
+            {
+                if (Ghost.Timeout > 0)
+                    continue;
+                // Calculate the direction to Pacman
+                int dx = Math.Sign(pacman.X - Ghost.X); // Horizontal direction to Pacman
+                int dy = Math.Sign(pacman.Y - Ghost.Y); // Vertical direction to Pacman
+
+                // Determine whether to chase or flee based on Pacman's power state
+                if (pacman.Power > Ghost.Power)
                 {
-                    case 0: Ghost.ChangeDirection(0, -1); break; // Вверх
-                    case 1: Ghost.ChangeDirection(0, 1); break;  // Вниз
-                    case 2: Ghost.ChangeDirection(-1, 0); break; // Влево
-                    case 3: Ghost.ChangeDirection(1, 0); break;  // Вправо
+                    // Flee: Reverse the direction
+                    dx = -dx;
+                    dy = -dy;
                 }
 
-                // Проверка на столкновение со стенами
+                // Create a list of possible directions, prioritized by proximity to Pacman
+                List<(int dX, int dY)> possibleDirections = new List<(int dX, int dY)>
+                {
+                    (dx, 0),    // Horizontal movement first
+                    (0, dy),    // Vertical movement second
+                    (-dx, 0),   // Opposite horizontal movement
+                    (0, -dy)    // Opposite vertical movement
+                };
+
+                // Shuffle directions slightly to add randomness in tie-breaking scenarios
+                possibleDirections = possibleDirections.OrderBy(_ => random.Next()).ToList();
+
+                // Try each direction until a valid one is found
+                bool moved = false;
+                foreach (var (dX, dY) in possibleDirections)
+                {
+                    Ghost.ChangeDirection(dX, dY);
+                    if (CheckMove(Ghost))
+                    {
+                        moved = true;
+                        break;
+                    }
+                }
+
+                // If no valid direction was found, try reversing the current direction
+                if (!moved)
+                {
+                    Ghost.ChangeDirection(-Ghost.dX, -Ghost.dY); // Reverse direction
+                    if (CheckMove(Ghost))
+                    {
+                        moved = true;
+                    }
+                }
+
+                // If still no valid direction, stop moving (fallback)
+                if (!moved)
+                {
+                    Ghost.ChangeDirection(0, 0); // Stop moving
+                }
+
+                // Move the ghost and handle collisions
                 int newX = Ghost.X + Ghost.dX;
                 int newY = Ghost.Y + Ghost.dY;
-                int nextPos0 = Level[0, newX, newY];
                 int nextPos1 = Level[1, newX, newY];
 
-                if (nextPos0 < 5 && !(nextPos1 >= 51 && nextPos1 <= 54))
+                if (HandlePacmanCollision(Ghost, nextPos1) && CheckMove(Ghost))
                 {
-                    if (nextPos1 == pacman.ObjectID)
-                    {
-                        if (pacman.Power > Ghost.Power) { Level[1, Ghost.X, Ghost.Y] = 0; Ghost.Respawn(); return; }
-                        else { pacman.Respawn(); }
-                    }
-                        Level[1, newX, newY] = Ghost.ObjectID;
-                        Level[1, Ghost.X, Ghost.Y] = 0;                    
-                        Ghost.Move();               
+                    Level[1, newX, newY] = Ghost.ObjectID; // Update the level grid
+                    Level[1, Ghost.X, Ghost.Y] = 0;       // Clear the old position
+                    Ghost.Move();                         // Move the ghost
                 }
             }
         }

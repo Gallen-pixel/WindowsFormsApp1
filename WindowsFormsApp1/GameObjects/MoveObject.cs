@@ -13,8 +13,9 @@ namespace WindowsFormsApp1.GameObject
         public int Power { get; private set; } = 0;
         int RespawnX = 0;
         int RespawnY = 0;
-        int Timeout = 0;
+        public int Timeout { get; private set; } = 0;
         int PowerDuration = 0;
+        public int Lifes { get; private set; } = 3;
         public int dX { get; private set; }
         public int dY { get; private set; }
         public int CoinsEaten { get; private set; }       
@@ -40,6 +41,7 @@ namespace WindowsFormsApp1.GameObject
         }
         public void Respawn()
         {
+            SetTimeOut(20);
             X = RespawnX;
             Y = RespawnY;
         }
@@ -68,8 +70,13 @@ namespace WindowsFormsApp1.GameObject
             else
                 SetPower(0);
         }
-        public MoveObject(Bitmap[] sprites, int ID, int Power) : base(sprites, ID) 
+        public MoveObject(Bitmap[] sprites, int ID, int Power,int Lifes) : base(sprites, ID) 
         { 
+            this.Power = Power;
+            this.Lifes = Lifes;
+        }
+        public MoveObject(Bitmap[] sprites, int ID, int Power) : base(sprites, ID)
+        {
             this.Power = Power;
         }
         public MoveObject(Bitmap[] sprites, int ID) : base(sprites, ID) { }
