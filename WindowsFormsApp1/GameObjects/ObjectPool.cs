@@ -13,23 +13,23 @@ namespace WindowsFormsApp1.GameObjects
 
     public static class  ObjectPool
     {
-        public static StaticObject LB = new StaticObject(new Bitmap[] { Properties.Resources.LB });
-        public static StaticObject LR = new StaticObject(new Bitmap[] { Properties.Resources.LR});
-        public static StaticObject LRB = new StaticObject(new Bitmap[] { Properties.Resources.LRB });
-        public static StaticObject LRT = new StaticObject(new Bitmap[] { Properties.Resources.LRT });
-        public static StaticObject LT = new StaticObject(new Bitmap[] { Properties.Resources.LT });
-        public static StaticObject LTB = new StaticObject(new Bitmap[] { Properties.Resources.LTB });
-        public static StaticObject RB = new StaticObject(new Bitmap[] { Properties.Resources.RB });
-        public static StaticObject RT = new StaticObject(new Bitmap[] { Properties.Resources.RT });
-        public static StaticObject RTB = new StaticObject(new Bitmap[] { Properties.Resources.RTB });
-        public static StaticObject TB = new StaticObject(new Bitmap[] { Properties.Resources.TB });
-        public static StaticObject X = new StaticObject(new Bitmap[] { Properties.Resources.X });
+        public static StaticObject LB  = new StaticObject(new Bitmap[]{ Properties.Resources.LB  });
+        public static StaticObject LR  = new StaticObject(new Bitmap[]{ Properties.Resources.LR  });
+        public static StaticObject LRB = new StaticObject(new Bitmap[]{ Properties.Resources.LRB });
+        public static StaticObject LRT = new StaticObject(new Bitmap[]{ Properties.Resources.LRT });
+        public static StaticObject LT  = new StaticObject(new Bitmap[]{ Properties.Resources.LT  });
+        public static StaticObject LTB = new StaticObject(new Bitmap[]{ Properties.Resources.LTB });
+        public static StaticObject RB  = new StaticObject(new Bitmap[]{ Properties.Resources.RB  });
+        public static StaticObject RT  = new StaticObject(new Bitmap[]{ Properties.Resources.RT  });
+        public static StaticObject RTB = new StaticObject(new Bitmap[]{ Properties.Resources.RTB });
+        public static StaticObject TB  = new StaticObject(new Bitmap[]{ Properties.Resources.TB  });
+        public static StaticObject X   = new StaticObject(new Bitmap[]{ Properties.Resources.X   });
 
-        public static MoveObject Pacman = new MoveObject(new Bitmap[] { Properties.Resources.pacmanB }, 50, 0);
-        public static MoveObject Ghost1 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 51, 1);
-        public static MoveObject Ghost2 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 52, 1);
-        public static MoveObject Ghost3 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 53, 1);
-        public static MoveObject Ghost4 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 54, 1);
+        public static MoveObject Pacman = new MoveObject(new Bitmap[] { Properties.Resources.pacmanB   }, 50, 0, 3);
+        public static MoveObject Ghost1 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 51, 1, int.MaxValue);
+        public static MoveObject Ghost2 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 52, 1, int.MaxValue);
+        public static MoveObject Ghost3 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 53, 1, int.MaxValue);
+        public static MoveObject Ghost4 = new MoveObject(new Bitmap[] { Properties.Resources.ghost_207 }, 54, 1, int.MaxValue);
 
 
 
