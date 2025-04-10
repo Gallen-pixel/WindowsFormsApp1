@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
 {
     public partial class Map : Form
     {
+        System.Windows.Forms.Timer gameTimer;
         int[,,] Level = new int[2, 21, 31];
         
         MoveObject pacman = ObjectPool.Pacman;
@@ -70,8 +71,8 @@ namespace WindowsFormsApp1
         }
         void StartGame()
         {
-            System.Windows.Forms.Timer gameTimer = new System.Windows.Forms.Timer();
-            gameTimer.Interval = 300; // Интервал обновления (1000 мс)
+            gameTimer = new System.Windows.Forms.Timer();
+            gameTimer.Interval = 300; // Интервал обновления (0.3 с)
             gameTimer.Tick += new EventHandler(Game_tick);
             gameTimer.Start();
         }
@@ -179,6 +180,10 @@ namespace WindowsFormsApp1
             Pacman_move();
             HandleTimeouts();
             this.Invalidate();
+            if(pacman.Lifes==0)
+            {
+                gameTimer.Stop();
+            }
         }
         void HandleTimeouts()
         {

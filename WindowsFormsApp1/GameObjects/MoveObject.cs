@@ -42,6 +42,7 @@ namespace WindowsFormsApp1.GameObject
         public void Respawn()
         {
             SetTimeOut(20);
+            Lifes--;
             X = RespawnX;
             Y = RespawnY;
         }
