@@ -32,5 +32,15 @@ namespace WindowsFormsApp1.GameObject
     {
         Normal = 0,
         PoweredUp = 1
+
     }
+    public enum GhostState
+    {
+        Normal = 0,
+        Scared = 1,
+        Frozen = 2,
+        Fast = 3,
+
+    }
+    
 }

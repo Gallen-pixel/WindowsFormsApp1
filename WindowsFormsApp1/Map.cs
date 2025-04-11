@@ -128,6 +128,12 @@ namespace WindowsFormsApp1
                         case 2:
                             e.Graphics.DrawImage(Properties.Resources.big_coin, y * CellSize, x * CellSize, CellSize, CellSize);
                             break;
+                        case 3:
+                            e.Graphics.DrawImage(Properties.Resources.star, y * CellSize, x * CellSize, CellSize, CellSize);
+                            break;
+                        case 4:
+                            e.Graphics.DrawImage(Properties.Resources.potion, y * CellSize, x * CellSize, CellSize, CellSize);
+                            break;
                         case 0:
                         default:
                             break;
@@ -168,7 +174,11 @@ namespace WindowsFormsApp1
                     }
                 case Keys.Escape:
                     {
-                        Application.Exit();
+                        gameTimer.Stop();
+                        Form1 over = new Form1();
+                        over.Show();
+                        this.Hide();
+                        simpleSound.Stop();
                         break;
                     }
             }
@@ -182,6 +192,8 @@ namespace WindowsFormsApp1
             Ghost_move();
             Pacman_move();
             HandleTimeouts();
+            
+
             this.Invalidate();
             if(pacman.Lifes==0)
             {
@@ -199,7 +211,25 @@ namespace WindowsFormsApp1
             foreach (MoveObject Ghost in ghosts)
             {
                 Ghost.TimeOut();
+                if (pacman.Power > 0)
+                {
+                    Ghost.SetState(pacman.Power - 1);
+                }
+                else
+                {
+                    Ghost.SetState(0);
+                }
             }
+            if (pacman.Power == 4)
+            {
+                gameTimer.Interval = 150;
+            }
+            else
+            {
+                gameTimer.Interval = 300;
+            }
+
+
         }
         void Pacman_move()
         {
@@ -240,12 +270,17 @@ namespace WindowsFormsApp1
         {
             switch (content)
             {
+                
                 case 1:
                 case 2:
-                {
+                case 3:
+                case 4:
+                    {
                     pacman.EatCoin(content);
                     break;
                 }
+
+
             }
             Level[0, newX, newY] = 0;
             return true;
@@ -291,6 +326,10 @@ namespace WindowsFormsApp1
         }
         void Ghost_move()
         {
+            if (pacman.Power == 3 )
+            {
+                return;
+            }
             Random random = new Random();
             foreach (MoveObject Ghost in ghosts)
             {
@@ -368,6 +407,7 @@ namespace WindowsFormsApp1
             DrawEntity(e);
             e.Graphics.DrawString($"{pacman.CoinsEaten}", new Font("Bloq", 32), Brushes.White, new PointF(1600, 435));
             e.Graphics.DrawString($"{pacman.Lifes}", new Font("Bloq", 64), Brushes.White, new PointF(1680, 220));
+            
         }
         private void playSimpleSound()
         {
