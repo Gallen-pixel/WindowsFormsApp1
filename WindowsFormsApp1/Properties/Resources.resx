@@ -142,8 +142,32 @@
   <data name="LTB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LTB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pacmanB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pacmanB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pacman0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman1D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman1D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman1L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman1L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman1R" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman1R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman1U" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman1U.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman2D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman2D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman2L" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman2L.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman2R" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman2R.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pacman2U" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pacman2U.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pac_man_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pac-man-1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
