@@ -18,16 +18,19 @@ namespace WindowsFormsApp1
     public partial class Map : Form
     {
         System.Windows.Forms.Timer gameTimer;
+        SoundPlayer simpleSound;
         int[,,] Level = new int[2, 21, 31];
-        
-        MoveObject pacman = ObjectPool.Pacman;
+
+        MoveObject pacman = ObjectPool.DeepClone<MoveObject> (ObjectPool.Pacman);
         List<MoveObject> ghosts = new List<MoveObject>();
         int CellSize = 48;
+        int CurrentLvl;
         
         public Map(int lvl)
         {
+            CurrentLvl = lvl;
             InitializeComponent();
-            Level = Levels.Level[lvl-1];
+            Array.Copy( Levels.Level[lvl-1],Level, Levels.Level[lvl - 1].Length);
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             InitializeEntities();
@@ -40,10 +43,10 @@ namespace WindowsFormsApp1
             pacman.X = xy.Item1;
             pacman.Y = xy.Item2;
             pacman.SetRespawn(pacman.X, pacman.Y);
-            ghosts.Add(ObjectPool.Ghost1);
-            ghosts.Add(ObjectPool.Ghost2);
-            ghosts.Add(ObjectPool.Ghost3);
-            ghosts.Add(ObjectPool.Ghost4);
+            ghosts.Add(ObjectPool.DeepClone<MoveObject>(ObjectPool.Ghost1));
+            ghosts.Add(ObjectPool.DeepClone<MoveObject>(ObjectPool.Ghost2));
+            ghosts.Add(ObjectPool.DeepClone<MoveObject>(ObjectPool.Ghost3));
+            ghosts.Add(ObjectPool.DeepClone<MoveObject>(ObjectPool.Ghost4));
 
             foreach (MoveObject Ghost in  ghosts)
             {
@@ -183,6 +186,10 @@ namespace WindowsFormsApp1
             if(pacman.Lifes==0)
             {
                 gameTimer.Stop();
+                GameOver over = new GameOver(CurrentLvl);
+                over.Show();
+                this.Hide();
+                simpleSound.Stop();
             }
         }
         void HandleTimeouts()
@@ -368,7 +375,7 @@ namespace WindowsFormsApp1
             string resourcesDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\Resources"));
             string resourcePath = Path.Combine(resourcesDirectory, "pac-man-1.wav");
 
-            SoundPlayer simpleSound = new SoundPlayer(resourcePath);
+            simpleSound = new SoundPlayer(resourcePath);
             simpleSound.PlayLooping();
             
         }
