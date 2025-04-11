@@ -124,6 +124,198 @@
   <data name="ghost_207" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ghost_207.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ghost_blueDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFast1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFast1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFast2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFast2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFast3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFast3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFast4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFast4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFrozen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFrozen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFrozen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFrozen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFrozen3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFrozen3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueFrozen4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueFrozen4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueUnder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueUnder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueUnder2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueUnder2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueUnder3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueUnder3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueUnder4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueUnder4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_blueUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_blueUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFast1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFast1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFast2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFast2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFast3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFast3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFast4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFast4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFrozen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFrozen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFrozen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFrozen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFrozen3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFrozen3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeFrozen4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeFrozen4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeUnder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeUnder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeUnder2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeUnder2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeUnder3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeUnder3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeUnder4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeUnder4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orangeUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orangeUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_orengeLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_orengeLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFast1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFast1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFast2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFast2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFast3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFast3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFast4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFast4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFrozen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFrozen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFrozen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFrozen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFrozen3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFrozen3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkFrozen4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkFrozen4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkUnder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkUnder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkUnder2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkUnder2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkUnder3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkUnder3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkUnder4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkUnder4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_pinkUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_pinkUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFas3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFas3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFast1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFast1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFast2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFast2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFast4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFast4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFrozen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFrozen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFrozen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFrozen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFrozen3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFrozen3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redFrozen4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redFrozen4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redUnder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redUnder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redUnder2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redUnder2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redUnder3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redUnder3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redUnder4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redUnder4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ghost_redUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ghost_redUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,6 +333,9 @@
   </data>
   <data name="LTB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LTB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pacman0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pacman0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -195,8 +390,5 @@
   </data>
   <data name="X" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\X.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Без_названия_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Без названия(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

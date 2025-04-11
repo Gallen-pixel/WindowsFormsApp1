@@ -173,7 +173,7 @@
     <None Include="Resources\2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Без названия%281%29.png" />
+    <None Include="Resources\Menu.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pacman0.png" />
@@ -201,6 +201,198 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pacman2U.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFast1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redUnder4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redUnder3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redUnder2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redUnder1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFrozen4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFrozen3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFrozen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFrozen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFast4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFas3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_redFast2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFast1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkUnder4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkUnder3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkUnder2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkUnder1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFrozen4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFrozen3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFrozen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFrozen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFast4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFast3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pinkFast2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFast1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueUnder4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueUnder3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueUnder2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueUnder1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFrozen4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFrozen3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFrozen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFrozen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFast4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFast3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blueFast2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeUnder4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeUnder3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeUnder2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeUnder1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orengeLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFrozen4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFrozen3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFrozen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFrozen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFast4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFast3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFast2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orangeFast1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

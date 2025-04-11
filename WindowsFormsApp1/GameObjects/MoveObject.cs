@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.GameObject
         { 
             get
             {
-                if (currentFrame == this.sprite.GetLength(2) - 1)
+                if (currentFrame == this.sprite.GetLength(2))
                 {
                     currentFrame = 0;
                     return currentFrame;
@@ -51,6 +51,10 @@ namespace WindowsFormsApp1.GameObject
             X += dX;
             Y += dY;
         }
+        public void SetState(int state)
+        {
+            CurrentState = state;
+        }
         public void ChangeDirection(int directionX, int directionY)
         {
             dX = directionX;
@@ -58,8 +62,15 @@ namespace WindowsFormsApp1.GameObject
         }
         public void EatCoin(int coin)
         {
-            CoinsEaten += coin * 10; 
-            if (coin == 2) {SetPower(2); SetPowerDuration(30); CurrentState = (int)PacmanState.PoweredUp; }
+            CoinsEaten += coin * 10;
+            if (coin > 1)
+            {
+                SetPower(coin);
+                SetPowerDuration(10);
+                CurrentState = (int)PacmanState.PoweredUp > sprite.GetLength(0) - 1 ? 0 : (int)PacmanState.PoweredUp;
+            }
+            
+            
         }
         public void SetRespawn(int respawnX, int respawnY)
         {
@@ -68,7 +79,7 @@ namespace WindowsFormsApp1.GameObject
         }
         public void Respawn()
         {
-            SetTimeOut(20);
+            SetTimeOut(10);
             Lifes--;
             X = RespawnX;
             Y = RespawnY;
