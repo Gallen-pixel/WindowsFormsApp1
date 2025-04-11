@@ -48,7 +48,7 @@ namespace WindowsFormsApp1
             this.StartButton.FlatAppearance.BorderSize = 0;
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Image = ((System.Drawing.Image)(resources.GetObject("StartButton.Image")));
-            this.StartButton.Location = new System.Drawing.Point(729, 497);
+            this.StartButton.Location = new System.Drawing.Point(747, 498);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(490, 100);
             this.StartButton.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace WindowsFormsApp1
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Image = ((System.Drawing.Image)(resources.GetObject("CloseButton.Image")));
-            this.CloseButton.Location = new System.Drawing.Point(729, 620);
+            this.CloseButton.Location = new System.Drawing.Point(747, 614);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(490, 100);
             this.CloseButton.TabIndex = 2;
