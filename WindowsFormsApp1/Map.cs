@@ -367,6 +367,7 @@ namespace WindowsFormsApp1
             DrawGrid(e);
             DrawEntity(e);
             e.Graphics.DrawString($"{pacman.CoinsEaten}", new Font("Bloq", 32), Brushes.White, new PointF(1600, 435));
+            e.Graphics.DrawString($"{pacman.Lifes}", new Font("Bloq", 64), Brushes.White, new PointF(1680, 220));
         }
         private void playSimpleSound()
         {

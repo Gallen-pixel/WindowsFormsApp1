@@ -59,7 +59,12 @@ namespace WindowsFormsApp1.GameObject
         public void EatCoin(int coin)
         {
             CoinsEaten += coin * 10; 
-            if (coin == 2) {SetPower(2); SetPowerDuration(30); CurrentState = (int)PacmanState.PoweredUp; }
+            if (coin == 2) 
+            {
+                SetPower(2); 
+                SetPowerDuration(30);
+                CurrentState = (int)PacmanState.PoweredUp > sprite.GetLength(0) - 1 ? 0: (int)PacmanState.PoweredUp; 
+            }
         }
         public void SetRespawn(int respawnX, int respawnY)
         {
@@ -68,7 +73,7 @@ namespace WindowsFormsApp1.GameObject
         }
         public void Respawn()
         {
-            SetTimeOut(20);
+            SetTimeOut(10);
             Lifes--;
             X = RespawnX;
             Y = RespawnY;
