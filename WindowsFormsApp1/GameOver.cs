@@ -12,9 +12,25 @@ namespace WindowsFormsApp1
 {
     public partial class GameOver : Form
     {
-        public GameOver()
+        int CurrentLvl;
+        public GameOver(int currentLvl)
         {
             InitializeComponent();
+            CurrentLvl = currentLvl;
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
+
+        private void Repeat_Click(object sender, EventArgs e)
+        {
+            Map map = new Map(CurrentLvl);
+            map.Show();
+            this.Hide();
         }
     }
 }
