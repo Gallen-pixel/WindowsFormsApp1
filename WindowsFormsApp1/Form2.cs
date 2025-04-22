@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         private void Chooselvlclick(object sender, EventArgs e)
         {
             int lvl = int.Parse(((Button)sender).Tag.ToString());
-            Map map = new Map(lvl);
+            Map map = new Map(lvl, 0);
             map.Show();
             this.Hide();
         }

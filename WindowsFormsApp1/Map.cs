@@ -26,10 +26,12 @@ namespace WindowsFormsApp1
         List<MoveObject> ghosts = new List<MoveObject>();
         int CellSize = 48;
         int CurrentLvl;
+        int Score;
         
-        public Map(int lvl)
+        public Map(int lvl, int playerscore)
         {
             CurrentLvl = lvl;
+            Score = playerscore;
             InitializeComponent();
             Array.Copy( Levels.Level[lvl-1],Level, Levels.Level[lvl - 1].Length);
             RandomBuffs();
@@ -88,6 +90,7 @@ namespace WindowsFormsApp1
             Random random = new Random();
             int randX = random.Next(1, Level.GetLength(1));
             int randY = random.Next(1, Level.GetLength(2));
+
             for (int i = 0; i < 4; i++)
             {               
                 while (Level[0, randX, randY] != 1)
@@ -255,17 +258,17 @@ namespace WindowsFormsApp1
             {
                 gameTimer.Stop();
                 simpleSound.Stop();
-
+                Score += pacman.CoinsEaten;
                 int nextLvl = CurrentLvl + 1;
                 if (nextLvl <= Levels.Level.GetLength(0))
                 {
-                    Map nextMap = new Map(nextLvl);
+                    Map nextMap = new Map(nextLvl, Score);
                     nextMap.Show();
                 }
                 else
                 {
                     
-                    Map firstMap = new Map(1);
+                    Map firstMap = new Map(1, Score);
                     firstMap.Show();
                 }
 
@@ -473,7 +476,7 @@ namespace WindowsFormsApp1
            
             DrawGrid(e);
             DrawEntity(e);
-            e.Graphics.DrawString($"{pacman.CoinsEaten}", new Font("Bloq", 32), Brushes.White, new PointF(1600, 435));
+            e.Graphics.DrawString($"{Score+pacman.CoinsEaten}", new Font("Bloq", 32), Brushes.White, new PointF(1600, 435));
             e.Graphics.DrawString($"{pacman.Lifes}", new Font("Bloq", 64), Brushes.White, new PointF(1680, 220));
             
         }

@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
 
         private void Repeat_Click(object sender, EventArgs e)
         {
-            Map map = new Map(CurrentLvl);
+            Map map = new Map(CurrentLvl, 0);
             map.Show();
             this.Hide();
         }
