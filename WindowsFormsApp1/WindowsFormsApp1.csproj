@@ -116,6 +116,7 @@
     <Folder Include="Resources\Entity\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PlayersScores.csv" />
     <None Include="Resources\RT.png" />
   </ItemGroup>
   <ItemGroup>

@@ -235,19 +235,11 @@ namespace WindowsFormsApp1
             
 
             this.Invalidate();
-            if(pacman.Lifes==0)
-            {
-                gameTimer.Stop();
-                GameOver over = new GameOver(CurrentLvl);
-                over.Show();
-                this.Hide();
-                simpleSound.Stop();
-
-            }
             if (pacman.Lifes == 0)
             {
                 gameTimer.Stop();
-                GameOver over = new GameOver(CurrentLvl);
+                Score += pacman.CoinsEaten;
+                GameOver over = new GameOver(CurrentLvl, Score);
                 over.Show();
                 this.Hide();
                 simpleSound.Stop();
@@ -271,7 +263,6 @@ namespace WindowsFormsApp1
                     Map firstMap = new Map(1, Score);
                     firstMap.Show();
                 }
-
                 this.Hide();
             }
         }

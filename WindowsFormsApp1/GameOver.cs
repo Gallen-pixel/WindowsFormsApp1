@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,23 @@ namespace WindowsFormsApp1
     public partial class GameOver : Form
     {
         int CurrentLvl;
-        public GameOver(int currentLvl)
+
+        private void AddScore(int Score) 
+        {            
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string resourcesDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\Resources"));
+            string resourcePath = Path.Combine(resourcesDirectory, "PlayersScores.csv");
+            using (StreamWriter sw = new StreamWriter(resourcePath, true))
+            { 
+                sw.WriteLine(Score);
+                sw.Close();
+            }
+        }
+        public GameOver(int currentLvl, int score)
         {
             InitializeComponent();
             CurrentLvl = currentLvl;
+            AddScore(score);
         }
 
         private void Back_Click(object sender, EventArgs e)

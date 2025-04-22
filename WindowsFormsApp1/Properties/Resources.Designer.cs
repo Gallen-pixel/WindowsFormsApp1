@@ -890,6 +890,15 @@ namespace WindowsFormsApp1.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        internal static string PlayersScores {
+            get {
+                return ResourceManager.GetString("PlayersScores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap potion {
