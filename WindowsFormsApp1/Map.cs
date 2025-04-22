@@ -202,6 +202,37 @@ namespace WindowsFormsApp1
                 over.Show();
                 this.Hide();
                 simpleSound.Stop();
+
+            }
+            if (pacman.Lifes == 0)
+            {
+                gameTimer.Stop();
+                GameOver over = new GameOver(CurrentLvl);
+                over.Show();
+                this.Hide();
+                simpleSound.Stop();
+                return;
+            }
+
+            if (IsLevelCleared())
+            {
+                gameTimer.Stop();
+                simpleSound.Stop();
+
+                int nextLvl = CurrentLvl + 1;
+                if (nextLvl <= Levels.Level.GetLength(0))
+                {
+                    Map nextMap = new Map(nextLvl);
+                    nextMap.Show();
+                }
+                else
+                {
+                    
+                    Map firstMap = new Map(1);
+                    firstMap.Show();
+                }
+
+                this.Hide();
             }
         }
         void HandleTimeouts()
@@ -424,6 +455,18 @@ namespace WindowsFormsApp1
         private void Map_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+        bool IsLevelCleared()
+        {
+            for (int x = 0; x < Level.GetLength(1); x++)
+            {
+                for (int y = 0; y < Level.GetLength(2); y++)
+                {
+                    if (Level[0, x, y] == 1)
+                        return false;
+                }
+            }
+            return true;
         }
     }
 }
