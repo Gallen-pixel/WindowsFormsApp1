@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using WindowsFormsApp1.GameObject;
 using WindowsFormsApp1.GameObjects;
 
@@ -31,11 +32,13 @@ namespace WindowsFormsApp1
             CurrentLvl = lvl;
             InitializeComponent();
             Array.Copy( Levels.Level[lvl-1],Level, Levels.Level[lvl - 1].Length);
+            RandomBuffs();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             InitializeEntities();
             StartGame();
             playSimpleSound();
+
         }
         public void InitializeEntities()
         {            
@@ -78,6 +81,40 @@ namespace WindowsFormsApp1
             gameTimer.Interval = 300; // Интервал обновления (0.3 с)
             gameTimer.Tick += new EventHandler(Game_tick);
             gameTimer.Start();
+        }
+
+        void RandomBuffs()
+        {
+            Random random = new Random();
+            int randX = random.Next(1, Level.GetLength(1));
+            int randY = random.Next(1, Level.GetLength(2));
+            for (int i = 0; i < 4; i++)
+            {               
+                while (Level[0, randX, randY] != 1)
+                {
+                    randX = random.Next(1, Level.GetLength(1));
+                    randY = random.Next(1, Level.GetLength(2));
+                }
+                Level[0, randX, randY] = 2;
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                while (Level[0, randX, randY] != 1)
+                {
+                    randX = random.Next(1, Level.GetLength(1));
+                    randY = random.Next(1, Level.GetLength(2));
+                }
+                Level[0, randX, randY] = 3;
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                while (Level[0, randX, randY] != 1)
+                {
+                    randX = random.Next(1, Level.GetLength(1));
+                    randY = random.Next(1, Level.GetLength(2));
+                }
+                Level[0, randX, randY] = 4;
+            }
         }
         
         void DrawGrid(PaintEventArgs e)
@@ -251,7 +288,7 @@ namespace WindowsFormsApp1
                     Ghost.SetState(0);
                 }
             }
-            if (pacman.Power == 4)
+            if (pacman.Power == 3)
             {
                 gameTimer.Interval = 150;
             }
@@ -357,7 +394,7 @@ namespace WindowsFormsApp1
         }
         void Ghost_move()
         {
-            if (pacman.Power == 3 )
+            if (pacman.Power == 4 )
             {
                 return;
             }
