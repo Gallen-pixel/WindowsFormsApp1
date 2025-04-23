@@ -36,6 +36,7 @@ namespace WindowsFormsApp1
             this.StartButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.Statistics = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,12 +84,25 @@ namespace WindowsFormsApp1
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Statistics
+            // 
+            this.Statistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Statistics.FlatAppearance.BorderSize = 0;
+            this.Statistics.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Statistics.Image = ((System.Drawing.Image)(resources.GetObject("Statistics.Image")));
+            this.Statistics.Location = new System.Drawing.Point(12, 12);
+            this.Statistics.Name = "Statistics";
+            this.Statistics.Size = new System.Drawing.Size(134, 134);
+            this.Statistics.TabIndex = 3;
+            this.Statistics.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(28)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.Statistics);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.pictureBox1);
@@ -108,6 +122,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button CloseButton;
+        private Button Statistics;
     }
 
     

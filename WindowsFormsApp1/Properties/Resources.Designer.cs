@@ -63,6 +63,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _345 {
+            get {
+                object obj = ResourceManager.GetObject("_345", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap big_coin {
             get {
                 object obj = ResourceManager.GetObject("big_coin", resourceCulture);
@@ -890,7 +900,8 @@ namespace WindowsFormsApp1.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на 
+        ///.
         /// </summary>
         internal static string PlayersScores {
             get {
