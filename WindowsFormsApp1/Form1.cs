@@ -53,5 +53,12 @@ namespace WindowsFormsApp1
         {
             this.Show();
         }
+
+        private void Statistics_Click(object sender, EventArgs e)
+        {
+            stat stat = new stat();
+            stat.Show();
+            this.Hide();
+        }
     }
 }

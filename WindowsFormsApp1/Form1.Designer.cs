@@ -95,6 +95,7 @@ namespace WindowsFormsApp1
             this.Statistics.Size = new System.Drawing.Size(134, 134);
             this.Statistics.TabIndex = 3;
             this.Statistics.UseVisualStyleBackColor = true;
+            this.Statistics.Click += new System.EventHandler(this.Statistics_Click);
             // 
             // Form1
             // 
