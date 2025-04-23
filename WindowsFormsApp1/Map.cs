@@ -28,6 +28,7 @@ namespace WindowsFormsApp1
         int CurrentLvl;
         int Score;
         
+        
         public Map(int lvl, int playerscore)
         {
             CurrentLvl = lvl;
@@ -239,6 +240,7 @@ namespace WindowsFormsApp1
             {
                 gameTimer.Stop();
                 Score += pacman.CoinsEaten;
+
                 GameOver over = new GameOver(CurrentLvl, Score);
                 over.Show();
                 this.Hide();

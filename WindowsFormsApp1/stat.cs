@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             string[] scores = File.ReadAllLines(filename);
             foreach (var c in scores)
             {
-                e.Graphics.DrawString($"{c}", new Font("Bloq", 50), Brushes.White, new PointF(870, 200));
+                e.Graphics.DrawString($"{c}", new Font("Bloq",50), Brushes.White, new PointF(870, 200));
             }            
         }
     }

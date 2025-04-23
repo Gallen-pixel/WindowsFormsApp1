@@ -14,6 +14,8 @@ namespace WindowsFormsApp1
     public partial class GameOver : Form
     {
         int CurrentLvl;
+        int sc;
+        
 
         private void AddScore(int Score) 
         {            
@@ -24,6 +26,7 @@ namespace WindowsFormsApp1
             { 
                 sw.WriteLine(Score);
                 sw.Close();
+                
             }
         }
         public GameOver(int currentLvl, int score)
@@ -31,7 +34,13 @@ namespace WindowsFormsApp1
             InitializeComponent();
             CurrentLvl = currentLvl;
             AddScore(score);
-            playerScore.Text = score.ToString();
+            //playerScore.Text = score.ToString();
+            sc = score;
+            
+
+
+
+
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -46,6 +55,20 @@ namespace WindowsFormsApp1
             Map map = new Map(CurrentLvl, 0);
             map.Show();
             this.Hide();
+        }
+        private void Score_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawString($"Your score: {sc}", new Font("Bloq", 50), Brushes.White, new PointF(700,473));
+        }
+
+        private void Name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
