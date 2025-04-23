@@ -44,7 +44,7 @@
             this.Back.Image = ((System.Drawing.Image)(resources.GetObject("Back.Image")));
             this.Back.Location = new System.Drawing.Point(43, 34);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(107, 103);
+            this.Back.Size = new System.Drawing.Size(123, 112);
             this.Back.TabIndex = 4;
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
@@ -53,14 +53,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(28)))), ((int)(((byte)(77)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1920, 1020);
             this.Controls.Add(this.Back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "stat";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Stat_Paint);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ReadAndDisplayFilesAsync);
             this.ResumeLayout(false);
 
         }

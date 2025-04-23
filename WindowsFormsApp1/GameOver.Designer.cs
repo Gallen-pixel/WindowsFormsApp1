@@ -55,7 +55,7 @@
             this.Repeat.FlatAppearance.BorderSize = 0;
             this.Repeat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Repeat.Image = ((System.Drawing.Image)(resources.GetObject("Repeat.Image")));
-            this.Repeat.Location = new System.Drawing.Point(897, 423);
+            this.Repeat.Location = new System.Drawing.Point(979, 702);
             this.Repeat.Name = "Repeat";
             this.Repeat.Size = new System.Drawing.Size(162, 162);
             this.Repeat.TabIndex = 2;
@@ -70,7 +70,7 @@
             this.Back.FlatAppearance.BorderSize = 0;
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Back.Image = ((System.Drawing.Image)(resources.GetObject("Back.Image")));
-            this.Back.Location = new System.Drawing.Point(769, 446);
+            this.Back.Location = new System.Drawing.Point(740, 725);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(107, 117);
             this.Back.TabIndex = 3;
