@@ -39,10 +39,7 @@ namespace WindowsFormsApp1
             string resourcePath = Path.Combine(resourcesDirectory, "PlayersScores.csv");
             String filename = resourcePath;
             string[] scores = File.ReadAllLines(filename);
-            foreach (var c in scores)
-            {
-                e.Graphics.DrawString($"{c}", new Font("Bloq",50), Brushes.White, new PointF(870, 200));
-            }            
+            place1Score.Text = scores[0];     
         }
     }
 }
