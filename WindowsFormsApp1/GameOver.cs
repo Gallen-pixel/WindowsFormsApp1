@@ -31,6 +31,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             CurrentLvl = currentLvl;
             AddScore(score);
+            playerScore.Text = score.ToString();
         }
 
         private void Back_Click(object sender, EventArgs e)
