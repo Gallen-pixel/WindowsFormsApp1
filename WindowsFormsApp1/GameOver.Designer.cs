@@ -80,7 +80,7 @@
             this.NameSc.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.NameSc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NameSc.DetectUrls = false;
-            this.NameSc.Font = new System.Drawing.Font("Bloq", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameSc.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameSc.ForeColor = System.Drawing.SystemColors.Menu;
             this.NameSc.ImeMode = System.Windows.Forms.ImeMode.On;
             this.NameSc.Location = new System.Drawing.Point(862, 619);
@@ -89,13 +89,12 @@
             this.NameSc.Size = new System.Drawing.Size(213, 37);
             this.NameSc.TabIndex = 5;
             this.NameSc.Text = "Name";
-            this.NameSc.TextChanged += new System.EventHandler(this.Name_TextChanged);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Bloq", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Location = new System.Drawing.Point(1090, 609);
             this.button1.Name = "button1";
@@ -134,7 +133,7 @@
         private System.Windows.Forms.Button Repeat;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Label playerScore;
-        private System.Windows.Forms.RichTextBox NameSc;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox NameSc;
     }
 }

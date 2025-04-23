@@ -17,30 +17,23 @@ namespace WindowsFormsApp1
         int sc;
         
 
-        private void AddScore(int Score) 
+        private void AddScoreAndName(int Score) 
         {            
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string resourcesDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\Resources"));
             string resourcePath = Path.Combine(resourcesDirectory, "PlayersScores.csv");
             using (StreamWriter sw = new StreamWriter(resourcePath, true))
             { 
-                sw.WriteLine(Score);
-                sw.Close();
-                
+                sw.WriteLine($"{Score};{NameSc.Text};{DateTime.Now}");
+                sw.Close();              
             }
         }
         public GameOver(int currentLvl, int score)
         {
             InitializeComponent();
             CurrentLvl = currentLvl;
-            AddScore(score);
             //playerScore.Text = score.ToString();
             sc = score;
-            
-
-
-
-
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -60,15 +53,10 @@ namespace WindowsFormsApp1
         {
             e.Graphics.DrawString($"Your score: {sc}", new Font("Bloq", 50), Brushes.White, new PointF(700,473));
         }
-
-        private void Name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AddScoreAndName(sc);
         }
     }
 }
