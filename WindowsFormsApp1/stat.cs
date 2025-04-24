@@ -93,6 +93,8 @@ namespace WindowsFormsApp1
                 counter++;
             }
 
+
+
             Sort(tmpresult);
 
             string[,] result = new string[8,3];
