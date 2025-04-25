@@ -92,17 +92,15 @@ namespace WindowsFormsApp1
                 }
                 counter++;
             }
-
-
              
             Sort(tmpresult);
 
-            string[,] result = new string[8,3];
+            string[,] result = new string[12,3];
             int length = tmpresult.GetLength(0);
 
-            if (length > 8)
+            if (length > 11)
             {
-                length = 8;
+                length = 11;
             }
 
             for (int i = 0; i < length; i++) 
@@ -121,6 +119,10 @@ namespace WindowsFormsApp1
             place6Score.Text = result[5, 0];
             place7Score.Text = result[6, 0];
             place8Score.Text = result[7, 0];
+            place9Score.Text = result[8, 0];
+            place10Score.Text = result[9, 0];
+            place11Score.Text = result[10, 0];
+            place12Score.Text = result[11, 0];
 
             place1Name.Text = result[0, 1];
             place2Name.Text = result[1, 1];
@@ -130,6 +132,10 @@ namespace WindowsFormsApp1
             place6Name.Text = result[5, 1];
             place7Name.Text = result[6, 1];
             place8Name.Text = result[7, 1];
+            place9Name.Text = result[8, 1];
+            place10Name.Text = result[9, 1];
+            place11Name.Text = result[10, 1];
+            place12Name.Text = result[11, 1];
 
             place1Time.Text = result[0, 2];
             place2Time.Text = result[1, 2];
@@ -139,6 +145,10 @@ namespace WindowsFormsApp1
             place6Time.Text = result[5, 2];
             place7Time.Text = result[6, 2];
             place8Time.Text = result[7, 2];
+            place9Time.Text = result[8, 2];
+            place10Time.Text = result[9, 2];
+            place11Time.Text = result[10, 2];
+            place12Time.Text = result[11, 2];
         }
     }
 }

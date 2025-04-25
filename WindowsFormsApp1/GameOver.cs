@@ -17,17 +17,27 @@ namespace WindowsFormsApp1
         int sc;
         
 
-        private void AddScoreAndName(int Score) 
+        private void AddScoreAndName(int Score, string Name) 
         {            
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string resourcesDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\Resources"));
             string resourcePath = Path.Combine(resourcesDirectory, "PlayersScores.csv");
             using (StreamWriter sw = new StreamWriter(resourcePath, true))
             { 
-                sw.WriteLine($"{Score};{NameSc.Text};{DateTime.Now}");
+                sw.WriteLine($"{Score};{Name};{DateTime.Now}");
                 sw.Close();              
             }
         }
+
+        public bool ValidName(string Name)
+        {
+            if (Name.Contains(';') || Name.Length > 6)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public GameOver(int currentLvl, int score)
         {
             InitializeComponent();
@@ -51,13 +61,21 @@ namespace WindowsFormsApp1
         }
         private void Score_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawString($"Your score: {sc}", new Font("Bloq", 50), Brushes.White, new PointF(700,473));
+            e.Graphics.DrawString($"Your score: {sc} \n Enter 6 letter name", new Font("Bloq", 50), Brushes.White, new PointF(700,473));
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
-            AddScoreAndName(sc);
-            button1.Enabled = false;
+            if (ValidName(NameSc.Text))
+            {
+                AddScoreAndName(sc, NameSc.Text);
+                button1.Enabled = false;
+                button1.BackColor = Color.Green;
+            }
+            else
+            {
+                button1.BackColor = Color.Red;
+            }
         }
     }
 }

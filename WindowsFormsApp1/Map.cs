@@ -187,7 +187,6 @@ namespace WindowsFormsApp1
             MoveImage(pacman, e);
             foreach (MoveObject Ghost in ghosts)
                 MoveImage(Ghost, e);
-
         }
         private void Map_KeyDown(object sender, KeyEventArgs e)
         {
