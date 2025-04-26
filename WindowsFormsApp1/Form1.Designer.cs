@@ -88,13 +88,14 @@ namespace WindowsFormsApp1
             // 
             this.Statistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Statistics.FlatAppearance.BorderSize = 0;
-            this.Statistics.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Statistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Statistics.Image = ((System.Drawing.Image)(resources.GetObject("Statistics.Image")));
             this.Statistics.Location = new System.Drawing.Point(12, 12);
             this.Statistics.Name = "Statistics";
-            this.Statistics.Size = new System.Drawing.Size(134, 134);
+            this.Statistics.Size = new System.Drawing.Size(57, 51);
             this.Statistics.TabIndex = 3;
             this.Statistics.UseVisualStyleBackColor = true;
+            this.Statistics.UseWaitCursor = true;
             this.Statistics.Click += new System.EventHandler(this.Statistics_Click);
             // 
             // Form1
