@@ -52,26 +52,29 @@ namespace WindowsFormsApp1
                 {
                     string filePath = openFileDialog.FileName;
                     List<string> correctedLines = new List<string>();
-
                     string[] lines = File.ReadAllLines(filePath);
 
-                    //  Проверка: больше 31 строки
-                    if (lines.Length > 31)
+                    //  Проверка: больше 21 строки
+                    if (lines.Length > 21)
                     {
-                        MessageBox.Show("Ошибка: Файл содержит больше 31 строки.");
+                        MessageBox.Show("Ошибка: Файл содержит больше 21 строки.");
                         return;
                     }
+
+                    int errorcounter = 1;
 
                     foreach (string line in lines)
                     {
                         string[] cells = line.Split(',');
 
-                        //  Проверка: больше 21 столбца
-                        if (cells.Length > 21)
+                        //  Проверка: больше 31 столбца
+                        if (cells.Length > 31)
                         {
-                            MessageBox.Show("Ошибка: Одна из строк содержит больше 21 значения.");
+                            MessageBox.Show($"Ошибка: Строка №{errorcounter} содержит больше 31 значения.");
                             return;
                         }
+
+                        errorcounter++;
 
                         List<string> newCells = new List<string>();
 
@@ -90,8 +93,8 @@ namespace WindowsFormsApp1
                             newCells.Add(value);
                         }
 
-                        // Дополнить до 21 столбца нулями
-                        while (newCells.Count < 21)
+                        // Дополнить до 31 столбца нулями
+                        while (newCells.Count < 31)
                         {
                             newCells.Add("0");
                         }
@@ -99,10 +102,10 @@ namespace WindowsFormsApp1
                         correctedLines.Add(string.Join(",", newCells));
                     }
 
-                    // Дополнить до 31 строки строками с 21 нулём
-                    while (correctedLines.Count < 31)
+                    // Дополнить до 21 строки строками с 31 нулём
+                    while (correctedLines.Count < 21)
                     {
-                        correctedLines.Add(string.Join(",", Enumerable.Repeat("0", 21)));
+                        correctedLines.Add(string.Join(",", Enumerable.Repeat("0", 31)));
                     }
 
                     // Сохраняем файл обратно
