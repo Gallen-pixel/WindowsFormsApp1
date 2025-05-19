@@ -41,6 +41,5 @@ namespace WindowsFormsApp1.GameObject
         Frozen = 2,
         Fast = 3,
 
-    }
-    
+    }  
 }
