@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            string targetFolder = @"C:\Users\user\source\repos\WindowsFormsApp1\WindowsFormsApp1\Resources\game\map";
+            string targetFolder = @"C:\Users\Admin\Desktop\WindowsFormsApp1\WindowsFormsApp1\Resources\levelscs";
             if (Directory.Exists(targetFolder))
             {
                 openFileDialog.InitialDirectory = targetFolder;
@@ -98,7 +98,7 @@ namespace WindowsFormsApp1
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            string targetFolder = @"C:\Users\user\source\repos\WindowsFormsApp1\WindowsFormsApp1\Resources\game\map";
+            string targetFolder = @"C:\Users\Admin\Desktop\WindowsFormsApp1\WindowsFormsApp1\Resources\levelscs";
             if (Directory.Exists(targetFolder))
             {
                 openFileDialog.InitialDirectory = targetFolder;
@@ -115,13 +115,14 @@ namespace WindowsFormsApp1
             {
                 ValidateAndFixCsvFile(filePath);
                 ChangeCustomLvl(filePath);
-                MessageBox.Show("Файл успешно проверен и сохранён.", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Файл успешно проверен и добавлен в 5 уровень.", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void ValidateAndFixCsvFile(string filePath)
         {
@@ -133,7 +134,7 @@ namespace WindowsFormsApp1
 
             HashSet<int> allowedValues = new HashSet<int>
     {
-        0, 1, 2, 3, 4, 10, 11, 20, 30, 32, 33, 40, 41, 42, 43, 50, 51, 52, 53, 54
+        0, 1, 2, 3, 4, 10, 11, 20, 30, 32, 33, 40, 41, 42, 43, 50, 51, 52, 53, 54, 31
     };
 
             int maxRows = 21;
