@@ -137,6 +137,7 @@
             // 
             // editButton
             // 
+            this.editButton.FlatAppearance.BorderSize = 0;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
             this.editButton.Location = new System.Drawing.Point(1781, 22);
@@ -148,6 +149,7 @@
             // 
             // loadButton
             // 
+            this.loadButton.FlatAppearance.BorderSize = 0;
             this.loadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadButton.Image = ((System.Drawing.Image)(resources.GetObject("loadButton.Image")));
             this.loadButton.Location = new System.Drawing.Point(1781, 131);
