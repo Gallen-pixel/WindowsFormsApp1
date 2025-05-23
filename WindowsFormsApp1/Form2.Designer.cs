@@ -137,21 +137,23 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(1768, 43);
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton.Image = ((System.Drawing.Image)(resources.GetObject("editButton.Image")));
+            this.editButton.Location = new System.Drawing.Point(1781, 22);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(75, 72);
+            this.editButton.Size = new System.Drawing.Size(111, 103);
             this.editButton.TabIndex = 7;
-            this.editButton.Text = "Edit";
-            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(1768, 121);
+            this.loadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadButton.Image = ((System.Drawing.Image)(resources.GetObject("loadButton.Image")));
+            this.loadButton.Location = new System.Drawing.Point(1781, 131);
             this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(75, 71);
+            this.loadButton.Size = new System.Drawing.Size(111, 103);
             this.loadButton.TabIndex = 8;
-            this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = true;
             this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
