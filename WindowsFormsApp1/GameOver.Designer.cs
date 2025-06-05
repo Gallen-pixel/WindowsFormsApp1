@@ -88,7 +88,8 @@
             this.NameSc.Name = "NameSc";
             this.NameSc.Size = new System.Drawing.Size(213, 37);
             this.NameSc.TabIndex = 5;
-            this.NameSc.Text = "Name";
+            this.NameSc.Text = "";
+            this.NameSc.TextChanged += new System.EventHandler(this.NameSc_TextChanged);
             // 
             // button1
             // 
