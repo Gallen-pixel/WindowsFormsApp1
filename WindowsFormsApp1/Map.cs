@@ -389,78 +389,116 @@ namespace WindowsFormsApp1
         }
         void Ghost_move()
         {
-            if (pacman.Power == 4 )
+            // Если игра в особом состоянии (например, пауза), призраки не двигаются
+            if (pacman.Power == 4 || ghosts.Count == 0)
             {
                 return;
             }
+
             Random random = new Random();
+
             foreach (MoveObject Ghost in ghosts)
             {
+                // Пропускаем призраков с таймаутом
                 if (Ghost.Timeout > 0)
                     continue;
-                // Calculate the direction to Pacman
-                int dx = Math.Sign(pacman.X - Ghost.X); // Horizontal direction to Pacman
-                int dy = Math.Sign(pacman.Y - Ghost.Y); // Vertical direction to Pacman
 
-                // Determine whether to chase or flee based on Pacman's power state
-                if (pacman.Power > Ghost.Power)
-                {
-                    // Flee: Reverse the direction
-                    dx = -dx;
-                    dy = -dy;
-                }
+                // Определяем текущую стратегию движения (преследование/бегство)
+                bool isFleeing = pacman.Power > Ghost.Power;
 
-                // Create a list of possible directions, prioritized by proximity to Pacman
-                List<(int dX, int dY)> possibleDirections = new List<(int dX, int dY)>
-                {
-                    (dx, 0),    // Horizontal movement first
-                    (0, dy),    // Vertical movement second
-                    (-dx, 0),   // Opposite horizontal movement
-                    (0, -dy)    // Opposite vertical movement
-                };
+                // Получаем возможные направления движения (только горизонтальные/вертикальные)
+                var possibleDirections = GetCardinalDirections(Ghost, isFleeing, random);
 
-                // Shuffle directions slightly to add randomness in tie-breaking scenarios
-                possibleDirections = possibleDirections.OrderBy(_ => random.Next()).ToList();
+                // Пытаемся найти допустимое направление движения
+                bool moved = TryMoveGhost(Ghost, possibleDirections);
 
-                // Try each direction until a valid one is found
-                bool moved = false;
-                foreach (var (dX, dY) in possibleDirections)
-                {
-                    Ghost.ChangeDirection(dX, dY);
-                    if (CheckMove(Ghost))
-                    {
-                        moved = true;
-                        break;
-                    }
-                }
-
-                // If no valid direction was found, try reversing the current direction
+                // Если не удалось найти допустимое направление, пробуем обратное текущему
                 if (!moved)
                 {
-                    Ghost.ChangeDirection(-Ghost.dX, -Ghost.dY); // Reverse direction
-                    if (CheckMove(Ghost))
+                    Ghost.ChangeDirection(-Ghost.dX, -Ghost.dY);
+                    moved = CheckMove(Ghost);
+                }
+
+                // Если движение возможно, обновляем позицию
+                if (moved)
+                {
+                    UpdateGhostPosition(Ghost);
+                }
+                else
+                {
+                    Ghost.ChangeDirection(0, 0); // Останавливаем призрака
+                }
+            }
+        }
+
+        // Возвращает список возможных направлений (только по горизонтали/вертикали)
+        private List<(int dX, int dY)> GetCardinalDirections(MoveObject ghost, bool isFleeing, Random random)
+        {
+            int dx = Math.Sign(pacman.X - ghost.X);
+            int dy = Math.Sign(pacman.Y - ghost.Y);
+
+            // Если призрак убегает, инвертируем направление
+            if (isFleeing)
+            {
+                dx = -dx;
+                dy = -dy;
+            }
+
+            var directions = new List<(int dX, int dY)>();
+
+            // Добавляем только горизонтальные и вертикальные направления
+            if (dx != 0) directions.Add((dx, 0));  // Горизонтальное
+            if (dy != 0) directions.Add((0, dy));  // Вертикальное
+
+            // При бегстве добавляем случайные направления
+            if (isFleeing)
+            {
+                // Все возможные направления (без диагоналей)
+                var allDirections = new List<(int, int)> { (1, 0), (-1, 0), (0, 1), (0, -1) };
+
+                // Исключаем уже добавленные направления
+                foreach (var dir in allDirections)
+                {
+                    if (!directions.Contains(dir))
                     {
-                        moved = true;
+                        directions.Add(dir);
                     }
                 }
+            }
 
-                // If still no valid direction, stop moving (fallback)
-                if (!moved)
+            // Перемешиваем направления для случайности
+            return directions.OrderBy(_ => random.Next()).ToList();
+        }
+
+        // Пытается переместить призрака в одном из возможных направлений
+        private bool TryMoveGhost(MoveObject ghost, List<(int dX, int dY)> directions)
+        {
+            foreach (var (dX, dY) in directions)
+            {
+                // Проверяем, что это не диагональное движение
+                if (Math.Abs(dX) + Math.Abs(dY) != 1) continue;
+
+                ghost.ChangeDirection(dX, dY);
+                if (CheckMove(ghost))
                 {
-                    Ghost.ChangeDirection(0, 0); // Stop moving
+                    return true;
                 }
+            }
+            return false;
+        }
 
-                // Move the ghost and handle collisions
-                int newX = Ghost.X + Ghost.dX;
-                int newY = Ghost.Y + Ghost.dY;
-                int nextPos1 = Level[1, newX, newY];
+        // Обновляет позицию призрака на карте
+        private void UpdateGhostPosition(MoveObject ghost)
+        {
+            int newX = ghost.X + ghost.dX;
+            int newY = ghost.Y + ghost.dY;
 
-                if (HandlePacmanCollision(Ghost, nextPos1) && CheckMove(Ghost))
-                {
-                    Level[1, newX, newY] = Ghost.ObjectID; // Update the level grid
-                    Level[1, Ghost.X, Ghost.Y] = 0;       // Clear the old position
-                    Ghost.Move();                         // Move the ghost
-                }
+            if (HandlePacmanCollision(ghost, Level[1, newX, newY]))
+            {
+                // Обновляем карту только если движение действительно произошло
+                Level[1, ghost.X, ghost.Y] = 0;       // Очищаем старую позицию
+                Level[1, newX, newY] = ghost.ObjectID; // Устанавливаем новую позицию
+                ghost.Move();                         // Перемещаем объект
             }
         }
         private void Map_Paint(object sender, PaintEventArgs e)
