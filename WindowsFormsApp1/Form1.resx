@@ -6094,17 +6094,17 @@
   </data>
   <data name="Statistics.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAALiIAAC4iAari3ZIAAAIFSURBVGhD7ZkxbsMwFEMztPc/Q7v2DO0Beo8MnYMOndyv
-        Vj/hZyjHkSUZAfwADrLkTxKBEQc53MM0TUEf759TC/HcbrCRClMjntsNNlJhasRzu8FGKkyNeO5anlzK
-        DPX68nbW8fgVZPygeB/vVbNRluUZdJO9QNJmBdQA1+n0HdQKnqu8XTlmGXWTi41awXOVtyvHLKNucrFR
-        K3iu8nblmGXUTS42agXPVd6uHPOC3R+Eh3nwKNgXMxkhb1gk4WEeNAr2xUxGyBsWSXiYB9WQPuT/D3o5
-        7IuZjJA3LJLwMA+qoXsB3EzCL5gW1BRgMBPn3QuU4OBrimAmzntVAN9X1tCyAGbivHuBEnsBADNx3qsC
-        Br7H300pKF/3tTorOGfivIsLoOGcaWmfr/tanRVsX8BR+35N7WXWF2BKZjMh/lD7fk3tZZYXwAdmjpLZ
-        TIhqMBPn3QswD1PA4cCbF8AXpyWMKICZOO/qAk6P4A5m4ryPX8D2g3CTf9rN0bIA+2ImI+QNiyQ8zING
-        wb6YyQh5wyIJD/OgUbAvZjJC3rBIwsM8aBTsi5mMkDcskvAwiwe3gucqb5c9ZxG7fy+wFp6rvF059gW7
-        /7ELCM5/56gBKPyCwfeVJAN/Vwz9j2wvkLRlgSIWZPHzco94bjfYSIWpEc/tBhupMDXiud1gIxWmRjx3
-        OYfDLw2SaaN1i42JAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAAgVJREFUaEPtmTFuwzAUQzO09z9Du/YM7QF6jwydgw6d3K9WP+FnKMeRJRkB/AAO
+        suRPEoERBzncwzRNQR/vn1ML8dxusJEKUyOe2w02UmFqxHO7wUYqTI147lqeXMoM9frydtbx+BVk/KB4
+        H+9Vs1GW5Rl0k71A0mYF1ADX6fQd1Aqeq7xdOWYZdZOLjVrBc5W3K8cso25ysVEreK7yduWYZdRNLjZq
+        Bc9V3q4c84LdH4SHefAo2BczGSFvWCThYR40CvbFTEbIGxZJeJgH1ZA+5P8Pejnsi5mMkDcskvAwD6qh
+        ewHcTMIvmBbUFGAwE+fdC5Tg4GuKYCbOe1UA31fW0LIAZuK8e4ESewEAM3HeqwIGvsffTSkoX/e1Ois4
+        Z+K8iwug4ZxpaZ+v+1qdFWxfwFH7fk3tZdYXYEpmMyH+UPt+Te1llhfAB2aOktlMiGowE+fdCzAPU8Dh
+        wJsXwBenJYwogJk47+oCTo/gDmbivI9fwPaDcJN/2s3RsgD7YiYj5A2LJDzMg0bBvpjJCHnDIgkP86BR
+        sC9mMkLesEjCwzxoFOyLmYyQNyyS8DCLB7eC5ypvlz1nEbt/L7AWnqu8XTn2Bbv/sQsIzn/nqAEo/ILB
+        95UkA39XDP2PbC+QtGWBIhZk8fNyj3huN9hIhakRz+0GG6kwNeK53WAjFaZGPHc5h8MvDZJpo3WLjYkA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

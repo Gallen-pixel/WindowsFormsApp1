@@ -77,5 +77,17 @@ namespace WindowsFormsApp1
                 button1.BackColor = Color.Red;
             }
         }
+
+        private void NameSc_TextChanged(object sender, EventArgs e)
+        {
+            if (NameSc.Text.Length > 6)
+            {
+                NameSc.BackColor = Color.LightCoral; 
+            }
+            else
+            {
+                NameSc.BackColor = Color.Green; 
+            }
+        }
     }
 }

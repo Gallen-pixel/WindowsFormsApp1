@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             button6.Click += startform.ShowForm1;
             button6.Click += this.Closelvl;
+
         }
 
         private void Chooselvlclick(object sender, EventArgs e)
